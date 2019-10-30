@@ -29,3 +29,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# VScodeのワークスペースなので無視する
+/pop-tale.code-workspace/
