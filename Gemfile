@@ -59,7 +59,11 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
+  # 今はwebdriverなんてものがあるらしいが無視してる。
   gem 'chromedriver-helper'
+
+  #追加。この場所でいいのかは少し自信ない
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
