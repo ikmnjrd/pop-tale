@@ -1,12 +1,31 @@
 <header class="navbar-fixed-top">
     <nav>
         <div class="nav-wrapper container">
-            <%= link_to "Poptale" , root_path, class: "brand-logo" %>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <%= link_to "Poptale" , root_path, class: "brand-logo" %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><%= link_to "Home",   root_path %></li>
             <li><%= link_to "Help",   help_path %></li>
-            <li><%= link_to "Log in", '#' %></li>
-            </ul>
+            
+            <% if logged_in? %>
+              <li><%= link_to "Users", '#'%></li>
+              <li>
+                <!-- /app/assets/javascripts/init.jsで初期化をしてる -->
+                <!-- Dropdown Trigger -->
+                <%= link_to "Account" , '#', class: "dropdown-trigger", :data => {:target=>"dropdown1"} %>
+                <!-- Dropdown Structure -->
+                <ul id="dropdown1" class="dropdown-content">
+                  <li><%= link_to "Profile", current_user %></li>
+                  <li><%= link_to "Settings", '#' %></li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "Log out", logout_path, method: :delete %>
+                  </li>
+                </ul>  
+              </li>
+            <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+            <% end %>
+          </ul>
         </div>
     </nav>
 </header>
