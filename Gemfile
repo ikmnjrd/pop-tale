@@ -16,7 +16,13 @@ gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass', '~> 1.0.0'
 
 # サンプルユーザー作成するgem
-gem 'faker', '1.7.3'
+gem 'faker'
+
+# pagenateを簡単に作ってくれるやつっぽい
+gem 'will_paginate'
+
+# materializeをwill_pagenateに適用するやつっぽい
+gem 'will_paginate-materialize'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
