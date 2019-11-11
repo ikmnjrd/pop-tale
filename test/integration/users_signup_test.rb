@@ -12,14 +12,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
     #assert_select 'div#<CSS id for error explanation>'
     #assert_select 'div.<CSS class for field with error>'
-    assert_select 'ul' do
-      assert_select 'li', 'Name can\'t be blank'
-      assert_select 'li', 'Email is invalid'
-      assert_select 'li', 'Password confirmation doesn\'t match Password'
-      assert_select 'li', 'Password is too short (minimum is 6 characters)'
-    end
-    assert_select 'form[action="/signup"]'
-    
   end
 
   test "valid signup information" do
