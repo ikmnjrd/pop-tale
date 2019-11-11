@@ -15,6 +15,9 @@ gem 'sass-rails', '~> 5.0'
 # CSSフレームワークとして追加
 gem 'materialize-sass', '~> 1.0.0'
 
+# サンプルユーザー作成するgem
+gem 'faker', '1.7.3'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
