@@ -1,0 +1,17 @@
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: @user %>
+
+  <%= f.label :name, class: 'col s12' %>
+  <%= f.text_field :name, class: 'input-field col s12' %>
+
+  <%= f.label :email, class: 'col s12'  %>
+  <%= f.email_field :email, class: 'input-field col s12' %>
+
+  <%= f.label :password, class: 'col s12'  %>
+  <%= f.password_field :password, class: 'input-field col s12' %>
+
+  <%= f.label :password_confirmation, "Confirmation", class: 'col s12'  %>
+  <%= f.password_field :password_confirmation, class: 'input-field col s12' %>
+
+  <%= f.submit yield(:button_text), class: "btn waves-effect waves-light" %>
+<% end %>

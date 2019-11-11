@@ -1,27 +1,10 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% provide(:button_text, 'Create my account') %>
+<h3>Sign up</h3>
 <div class="container">
   <div class="row">
     <div class="col l12">
-    <%#<div class="col-md-6 col-md-offset-s3"> チュートリアルでのデザイン。よくわからなかった。%>
-      <%= form_for(@user, url: signup_path) do |f| %>
-        <%= render 'shared/error_messages' %>
-
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-        <%# class form-controlにもデザインをまだ当てていない（このページ全体的にデザインまだまだ）%>
-
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
-
-        <%= f.label :password_confirmation, "Confirmation" %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-        <%= f.submit "Create my account", class: "btn waves-effect waves-light" %>
-      <% end %>
+      <%= render 'form' %>
     </div>
   </div>
 </div>
