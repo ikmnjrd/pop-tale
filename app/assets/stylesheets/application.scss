@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require material_icons
  *= require_self
  */
 
@@ -18,7 +19,5 @@
  $primary-color: color("blue", "lighten-2") !default;
  $secondary-color: color("pink", "lighten-2") !default;
  @import 'materialize';
-
- .pagination li.active a {
-    color: #b39ddb;
-  }
+ @import 'font-awesome'
+ 

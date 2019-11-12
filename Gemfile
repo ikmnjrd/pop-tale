@@ -15,6 +15,9 @@ gem 'sass-rails', '~> 5.0'
 # CSSフレームワークとして追加
 gem 'materialize-sass', '~> 1.0.0'
 
+# materializeのアイコン用gem
+gem 'material_icons' 
+
 # サンプルユーザー作成するgem
 gem 'faker'
 
@@ -23,6 +26,9 @@ gem 'will_paginate'
 
 # materializeをwill_pagenateに適用するやつっぽい
 gem 'will_paginate-materialize'
+
+# will_paginate-materializeの付属部品的なやつ
+gem 'font-awesome-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
