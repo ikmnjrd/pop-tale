@@ -19,5 +19,10 @@
  $primary-color: color("blue", "lighten-2") !default;
  $secondary-color: color("pink", "lighten-2") !default;
  @import 'materialize';
- @import 'font-awesome'
+ @import 'font-awesome';
  
+
+
+ .pagination li.active a {
+    color: #fff;
+  }
