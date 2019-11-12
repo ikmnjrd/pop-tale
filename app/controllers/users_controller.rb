@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def index
-    #@users = User.paginate(page: params[:page])
-    @users = User.paginate(:page => params[:page], :per_page => 20).order(id: :desc)
+    @users = User.paginate(:page => params[:page], :per_page => 30).order(id: :asc)
     @custom_paginate_renderer = custom_paginate_renderer
   end
 
