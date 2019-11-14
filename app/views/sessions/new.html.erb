@@ -10,6 +10,7 @@
       <%= f.email_field :email, class: 'input-field col s12' %>
 
       <%= f.label :password, class: 'col s12' %>
+      <%= link_to "(forgot password)", new_password_reset_path, class: 'col s12' %>
       <%= f.password_field :password, class: 'input-field col s12' %>
 
       <%= f.label :remember_me do %>
