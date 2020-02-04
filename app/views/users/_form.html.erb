@@ -13,5 +13,8 @@
   <%= f.label :password_confirmation, "Confirmation", class: 'col s12'  %>
   <%= f.password_field :password_confirmation, class: 'input-field col s12' %>
 
+  <%= f.label :avatar, class: 'col s12' %>
+  <%= f.file_field :avatar, class: 'file-field col s12' %>
+
   <%= f.submit yield(:button_text), class: "btn waves-effect waves-light" %>
 <% end %>
