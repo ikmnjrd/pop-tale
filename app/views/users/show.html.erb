@@ -7,6 +7,12 @@
         <%#gravatarはなんかダサいから使いたくない。チュートリアルではusers_helperにgravatar_forヘルパーを使ってる%>
         <%= @user.name %>
       </h1>
+      <div>
+      <% if @user.avatar.present? %>
+        <%= image_tag(@user.avatar.thumb.url) %>
+      <% else %>
+        <%= image_tag 'hatena.jpeg', :size =>'100x100' %>
+      <% end %>
     </section>
   </aside>
 </div>
