@@ -4,7 +4,7 @@
     <section class="user_info">
       <h1>
         <%# = gravatar_for @user %>
-        <%#gravatarはなんかダサいから使いたくない。チュートリアルではusers_helperにgravatar_forヘルパーを使ってる%>
+        <%#gravatarはなんか使いたくない。チュートリアルではusers_helperにgravatar_forヘルパーを使ってる%>
         <%= @user.name %>
       </h1>
       <div>
@@ -13,6 +13,7 @@
       <% else %>
         <%= image_tag 'hatena.jpeg', :size =>'100x100' %>
       <% end %>
+      </div>
     </section>
   </aside>
 </div>

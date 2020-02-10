@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    #@painting = Painting.where()
     redirect_to root_url and return unless @user.activated?
   end
   

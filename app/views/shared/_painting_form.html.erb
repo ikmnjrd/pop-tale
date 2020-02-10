@@ -1,0 +1,10 @@
+<%= form_for(@painting, url: { controller: :users, action: :show }) do |f| %><%#=, url: { controller: :paintings, action: :show }
+  <%#= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :description, placeholder: "Compose new painting..." %>
+  </div>
+  <div>
+    <%= f.file_field :picture %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

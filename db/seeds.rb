@@ -26,3 +26,9 @@ User.create!(name:  name,
       activated: true,
       activated_at: Time.zone.now)
 end
+
+first_user = User.first
+first_user.paintings.create!(description: "座礁したクジラ", picture: open("#{Rails.root}/db/fixtures/kujira_zasyou.png"))
+first_user.paintings.create!(description: "骨になったクジラ", picture: open("#{Rails.root}/db/fixtures/shinkai_kujira_hone.png"))
+first_user.paintings.create!(description: "セミクジラ", picture: open("#{Rails.root}/db/fixtures/whale_03_semikujira.png"))
+first_user.paintings.create!(description: "コククジラ", picture: open("#{Rails.root}/db/fixtures/whale_07_kokukujira.png"))
