@@ -1,9 +1,7 @@
-<%#= render 'shared/painting_form'%>
-
-<% if @my_gallery_items.any? %>
-  <h4>My Gallery</h4>
+<% if @gallery_items.any? %>
+  <h4>Gallery</h4>
   <div class='row'>
-      <% @my_gallery_items.each do |t| %>
+      <% @gallery_items.each do |t| %>
         <div class= 'card col s6 m4'>
           <div>
             <%= image_tag t.picture.url ,class: 'card-image', :size =>'300x300'%>
@@ -12,14 +10,16 @@
             <p><%= t.description %></p>
           </div>
         </div>
+        <% if current_user?(@user) %>
         <div>
           <%= link_to "delete", t, method: :delete,
                                        data: { confirm: "You sure?" } %>
         </div>
+        <% end %>
       <% end %>
     </div>
   </div>
   <%#= will_paginate @feed_items %>
 <% else %>
-  <h3>Your work is not decorated yet.</h3>
+  <h3>Work is not decorated yet.</h3>
 <% end %>

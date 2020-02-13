@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @painting = current_user.paintings.build
-    @my_gallery_items = current_user.my_gallery
+    @gallery_items = @user.gallery
     redirect_to root_url and return unless @user.activated?
   end
   

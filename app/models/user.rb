@@ -65,7 +65,7 @@ class User < ApplicationRecord
     Painting.all
   end
 
-  def my_gallery
+  def gallery
     Painting.where("user_id = ?", id)
   end
 
