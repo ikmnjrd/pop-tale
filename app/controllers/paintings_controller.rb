@@ -2,7 +2,7 @@ class PaintingsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy]
     before_action :correct_user,   only: :destroy
   def create
-    @painting = current_user.paintings.build #build(painting_params)
+    @painting = current_user.paintings.build(painting_params)
     if @painting.save
       flash[:success] = "painting created!"
       redirect_to root_url
