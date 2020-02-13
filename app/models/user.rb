@@ -62,6 +62,10 @@ class User < ApplicationRecord
   end
 
   def feed
+    Painting.all
+  end
+
+  def my_gallery
     Painting.where("user_id = ?", id)
   end
 
