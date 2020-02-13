@@ -13,8 +13,8 @@ class PaintingsController < ApplicationController
   end
 
   def show
-    #@painting = Painting.new
-    #render "new"
+    @painting = Painting.find(params[:id])
+    render "the_painting"
   end
     
   def destroy

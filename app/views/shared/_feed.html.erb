@@ -1,6 +1,18 @@
 <% if @feed_items.any? %>
-  <ol class="paintings">
-    <%= render @feed_items %>
-  </ol>
+  <div class='row'>
+      <% @feed_items.each do |t| %>
+        <div class= 'card col s6 m4'>
+          <div>
+            <%= link_to image_tag(t.picture.url ,class: 'card-image', :size =>'300x300'), painting_path(t.id) %>
+          </div>
+          <div class= 'card-content' >
+            <p><%= t.description %></p>
+            painted by
+            <%= link_to t.user.name, user_path(t.user) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <%#= will_paginate @feed_items %>
 <% end %>

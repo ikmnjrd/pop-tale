@@ -1,0 +1,13 @@
+<li id="painting-<%= @painting.id %>">
+  <%#s= link_to gravatar_for(painting.user, size: 50), painting.user %>
+  <span class="user"><%= link_to @painting.user.name, @painting.user %></span>
+  <span class="description"><%= @painting.description %></span>
+  <div>
+    <% if !@painting.picture.url.nil? %>
+      <%= image_tag(@painting.picture.url) %>
+    <% end %>
+  </div>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(@painting.created_at) %> ago.
+  </span>
+</li>
