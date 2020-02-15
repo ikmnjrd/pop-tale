@@ -3,6 +3,8 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @painting = current_user.paintings.build
       @feed_items = current_user.feed
+    else
+      @feed_items = []
     end
   end
 
