@@ -1,16 +1,18 @@
 <% if @feed_items.any? %>
   <div class='row'>
       <% @feed_items.each do |t| %>
-        <div class= 'card col s6 m4'>
-          <div>
-            <%= link_to image_tag(t.picture.url ,class: 'card-image', :size =>'300x300'), painting_path(t.id) %>
+        <% if t.activated == true %>
+          <div class= 'card col s6 m4'>
+            <div>
+              <%= link_to image_tag(t.picture.url ,class: 'card-image', :size =>'300x300'), painting_path(t.id) %>
+            </div>
+            <div class= 'card-content' >
+              <p><%= t.description %></p>
+              painted by
+              <%= link_to t.user.name, user_path(t.user) %>
+            </div>
           </div>
-          <div class= 'card-content' >
-            <p><%= t.description %></p>
-            painted by
-            <%= link_to t.user.name, user_path(t.user) %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
