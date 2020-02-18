@@ -1,13 +1,30 @@
-<li id="painting-<%= @painting.id %>">
+<div id="painting-<%= @painting.id %>">
   <%#s= link_to gravatar_for(painting.user, size: 50), painting.user %>
   <span class="user"><%= link_to @painting.user.name, @painting.user %></span>
   <span class="description"><%= @painting.description %></span>
   <div>
     <% if !@painting.picture.url.nil? %>
-      <%= image_tag(@painting.picture.url) %>
+      <!--サイズの指定が悩みどころ-->
+      <%= image_tag(@painting.picture.url) %> 
     <% end %>
   </div>
   <span class="timestamp">
     Posted <%= time_ago_in_words(@painting.created_at) %> ago.
   </span>
-</li>
+  <!--モーダル-->
+  <section>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">購入</a>
+  </section>
+</div>
+
+<!--モーダル表示部分-->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>注意事項</p>
+    <p>同一性の担保はロゴの挿入の範囲までですよ〜</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">支払いページへ進む</a>
+  </div>
+</div>
