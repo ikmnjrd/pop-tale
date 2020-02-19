@@ -5,6 +5,8 @@ class PaintingsController < ApplicationController
     @painting = current_user.paintings.build(painting_params)
     if @painting.save
       flash[:success] = "painting created!"
+      JudgmentMailer.new_registration(@painting).deliver_now
+      flash[:info] = "ちょと待てちょと待てお兄さん。まだ審査中だから待ってな！！"
       redirect_to root_url
     else
       @feed_items = []
