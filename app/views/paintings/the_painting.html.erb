@@ -8,6 +8,7 @@
       <%= image_tag(@painting.picture.url) %> 
     <% end %>
   </div>
+  <p><%= number_to_currency(@painting.price, :unit =>  "JPY", :precision => 0) %></p>
   <span class="timestamp">
     Posted <%= time_ago_in_words(@painting.created_at) %> ago.
   </span>
@@ -17,7 +18,7 @@
     <% end %>
   </div>
   <!--モーダル-->
-  <section>
+  <section class="right-align">
     <a class="waves-effect waves-light btn modal-trigger" href="#modal1">購入</a>
   </section>
 </div>

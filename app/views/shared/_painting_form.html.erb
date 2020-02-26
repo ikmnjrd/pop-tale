@@ -1,10 +1,16 @@
-<%= form_for(@painting) do |f| %><%#=, url: { controller: :users, action: :show} %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :description, placeholder: "Compose new painting..." %>
-  </div>
-  <div>
-    <%= f.file_field :picture %>
-  </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
-<% end %>
+
+<div class='row'>
+  <%= form_for(@painting) do |f| %><%#=, url: { controller: :users, action: :show} %>
+    <div class= 'input-field col s12 m8'>
+    　<div class="divider"></div>
+    　<%= render 'shared/error_messages', object: f.object %>   
+     <label><div class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></div> 
+  　　<%= f.file_field :picture ,class: "custom-file-field"%>
+     </label>
+ 　　 <section >作品の詳細<%= f.text_area :description, placeholder: "作品の説明文を入力してください"%></section>
+    　<section>Price <%= f.number_field :price, placeholder: "10000円以上" , class: "field"%></section>
+    　<section class="right-align"><%= f.submit "Post", class: "btn btn-primary" %><section>
+    　<div class="divider"></div>
+    </div>
+  <% end %>
+</div>

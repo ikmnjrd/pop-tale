@@ -28,10 +28,10 @@ User.create!(name:  name,
 end
 
 first_user = User.first
-first_user.paintings.create!(description: "座礁したクジラ", picture: open("#{Rails.root}/db/fixtures/kujira_zasyou.png"), activated: true)
-first_user.paintings.create!(description: "骨になったクジラ", picture: open("#{Rails.root}/db/fixtures/shinkai_kujira_hone.png"), activated: false)
-first_user.paintings.create!(description: "セミクジラ", picture: open("#{Rails.root}/db/fixtures/whale_03_semikujira.png"), activated: true)
-first_user.paintings.create!(description: "コククジラ", picture: open("#{Rails.root}/db/fixtures/whale_07_kokukujira.png"), activated: true)
+first_user.paintings.create!(description: "座礁したクジラ", picture: open("#{Rails.root}/db/fixtures/kujira_zasyou.png"), activated: true, price: 10000)
+first_user.paintings.create!(description: "骨になったクジラ", picture: open("#{Rails.root}/db/fixtures/shinkai_kujira_hone.png"), activated: false, price: 10000)
+first_user.paintings.create!(description: "セミクジラ", picture: open("#{Rails.root}/db/fixtures/whale_03_semikujira.png"), activated: true, price: 10000)
+first_user.paintings.create!(description: "コククジラ", picture: open("#{Rails.root}/db/fixtures/whale_07_kokukujira.png"), activated: true, price: 10000)
 
 second_user = User.second
-second_user.paintings.create!(description: "つまらないヤンキー、ラファエルの挨拶の真似しがち", picture: open("#{Rails.root}/db/fixtures/furyo_shounen.png"), activated: true)
+second_user.paintings.create!(description: "ヤンキー", picture: open("#{Rails.root}/db/fixtures/furyo_shounen.png"), activated: true, price: 10000)

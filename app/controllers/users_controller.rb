@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @painting = current_user.paintings.build
     @gallery_items = @user.gallery
+    #@user.galleryのうち、activatedがfalseの数をカウントしたい
+    #.gallery.where(activated = false)
     redirect_to root_url and return unless @user.activated?
   end
   

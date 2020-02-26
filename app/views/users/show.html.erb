@@ -16,8 +16,10 @@
       </div>
     </section>
     <section class="aaaaaa">
-      <% if current_user?(@user) %>
+      <% if current_user?(@user) && !@user.gallery.where(activated: false).any? %>
         <%= render 'shared/painting_form'%>
+      <% elsif @user.gallery.where(activated: false).any? %>
+        <p>NOTICE: Your Painting is judging now. Please wait to next upload.</p>
       <% end %>
     </section>
     <section class="Gallery">
