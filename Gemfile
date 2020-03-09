@@ -51,6 +51,10 @@ gem 'carrierwave'
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
 
+# タグ機能の実装
+# https://github.com/mbleigh/acts-as-taggable-on
+gem 'acts-as-taggable-on', '~> 6.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

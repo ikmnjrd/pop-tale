@@ -8,6 +8,14 @@
   　　<%= f.file_field :picture ,class: "custom-file-field"%>
      </label>
  　　 <section >作品の詳細<%= f.text_area :description, placeholder: "作品の説明文を入力してください"%></section>
+      <!--tag-->
+      <div class="chips">
+        <%#= f.label :tag_list, 'タグをカンマ区切りで入力' %>
+        <%= f.text_field :tag_list %>
+      </div>
+      
+
+      <!--値段-->
     　<section>Price <%= f.number_field :price, placeholder: "10000円以上" , class: "field"%></section>
     　<section class="right-align"><%= f.submit "Post", class: "btn btn-primary" %><section>
     　<div class="divider"></div>

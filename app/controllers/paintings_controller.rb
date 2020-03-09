@@ -33,7 +33,7 @@ class PaintingsController < ApplicationController
   private
     
     def painting_params
-      params.require(:painting).permit(:description, :picture, :price)
+      params.require(:painting).permit(:description, :picture, :price, :tag_list)
     end
 
     def correct_user
