@@ -2,7 +2,7 @@
   <div class='row'>
       <% @feed_items.each do |t| %>
         <% if t.activated == true %>
-          <div class= 'card col s6 m4'>
+          <div class= 'card col s12 m6 l4'>
             <div>
               <%= link_to image_tag(t.picture.url ,class: 'card-image', :size =>'300x300'), painting_path(t.id) %>
             </div>
