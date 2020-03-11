@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users
-  #ネストしなくて大丈夫？？？
   resources :paintings,          only: [:create, :destroy, :show]
-
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  #知識不足のため暫定的なルーティング。簡単なところでrootes.rb内での記述の順番とか間違えるとえらいことになる。バグの元。
+  get "/:id", to: "static_pages#home" 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

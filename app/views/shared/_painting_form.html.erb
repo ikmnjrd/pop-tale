@@ -4,19 +4,28 @@
     <div class= 'input-field col s12 m8'>
     　<div class="divider"></div>
     　<%= render 'shared/error_messages', object: f.object %>   
-     <label><div class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></div> 
+     <!--画像ファイル-->
+     <label>
+     <div class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></div> 
   　　<%= f.file_field :picture ,class: "custom-file-field"%>
      </label>
- 　　 <section >作品の詳細<%= f.text_area :description, placeholder: "作品の説明文を入力してください"%></section>
+     <!--商品説明-->
+ 　　 <section >
+        <%= f.label :description, '商品の説明' %>
+        <%= f.text_field :description, placeholder: "作品の説明文を入力してください"%>
+      </section>
       <!--tag-->
-      <div class="chips">
-        <%#= f.label :tag_list, 'タグをカンマ区切りで入力' %>
-        <%= f.text_field :tag_list %>
-      </div>
+      <section >
+        <%= f.label :tag_list, 'タグをカンマ(,)区切りで入力してください' %>
+        <%= f.text_field :tag_list, class: "chips"%>
+      </section>
       
-
       <!--値段-->
-    　<section>Price <%= f.number_field :price, placeholder: "10000円以上" , class: "field"%></section>
+    　<section>
+        <%= f.label :price, '商品の値段を入力してください' %> 
+        <%= f.number_field :price, placeholder: "10000円以上" , class: "field"%>
+      </section>
+      <!--submit-->
     　<section class="right-align"><%= f.submit "Post", class: "btn btn-primary" %><section>
     　<div class="divider"></div>
     </div>

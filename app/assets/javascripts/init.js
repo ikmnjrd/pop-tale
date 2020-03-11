@@ -14,5 +14,11 @@ document.addEventListener('turbolinks:load', function() {
     //モーダルの表示の初期化
     elems = document.querySelectorAll('.modal');
     M.Modal.init(elems, options);
+
+    //タグの機能（Chips）の初期化
+    elems = document.querySelectorAll('.chips');
+    instances = M.Chips.init(elems, options);
+    console.log(instances)
 });
+
 

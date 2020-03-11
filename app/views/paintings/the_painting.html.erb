@@ -1,8 +1,14 @@
 <div id="painting-<%= @painting.id %>">
   <%#s= link_to gravatar_for(painting.user, size: 50), painting.user %>
   <span class="user"><%= link_to @painting.user.name, @painting.user %></span>
-  <span class="description"><%= @painting.description %></span>
-  <div><%=  @painting.tag_list %></div>
+  <div class="description"><%= @painting.description %></div>
+  <!--タグの表示-->
+  <div>
+  　<% @painting.tag_list.each do |tag| %>
+    　<div class="chip"><%= link_to tag, "/#{tag}" %></div>
+  　<% end %>
+  </div>
+  <!--画像表示-->
   <div>
     <% if !@painting.picture.url.nil? %>
       <!--サイズの指定が悩みどころ-->
