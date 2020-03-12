@@ -12,23 +12,33 @@
   <div>
     <% if !@painting.picture.url.nil? %>
       <!--サイズの指定が悩みどころ-->
-      <%= image_tag(@painting.picture.url) %> 
+      <%= image_tag(@painting.picture.url) %>
     <% end %>
   </div>
   <p><%= number_to_currency(@painting.price, :unit =>  "JPY", :precision => 0) %></p>
   <span class="timestamp">
     Posted <%= time_ago_in_words(@painting.created_at) %> ago.
   </span>
-  <div>
-    <% if @painting.activated == false %>
+  
+  <% if @painting.activated == false %>
+    <div>
       <p>This is not activated!</p>
+    </div>
+  <% else %>
+    <!--購入ボタン（モーダル）&編集ページリンク-->
+    <% if current_user?(@painting.user) %>
+      <section class="right-align">
+        <%= link_to "編集",edit_painting_url, class: "waves-effect waves-light btn"%>
+      </section>
+    <% else %>
+      <section class="right-align">
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">購入</a>
+      </section>
     <% end %>
-  </div>
-  <!--モーダル-->
-  <section class="right-align">
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">購入</a>
-  </section>
+  <% end %>
+
 </div>
+
 
 <!--モーダル表示部分-->
 <div id="modal1" class="modal">

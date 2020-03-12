@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users
-  resources :paintings,          only: [:create, :destroy, :show]
+  resources :paintings,          only: [:create, :destroy, :show, :edit]
+  patch '/paintings/:id', to: 'paintings#update'
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   #知識不足のため暫定的なルーティング。簡単なところでrootes.rb内での記述の順番とか間違えるとえらいことになる。バグの元。
