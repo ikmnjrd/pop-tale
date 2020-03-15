@@ -45,6 +45,11 @@ class PaintingsController < ApplicationController
     flash[:success] = "Your the Painting deleted"
     redirect_to request.referrer || root_url
   end
+
+  def search
+    @search_tag = params[:tag]
+    @feed_items = Painting.tagged_with("#{params[:tag]}")
+  end
     
   private
     

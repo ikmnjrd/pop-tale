@@ -1,0 +1,9 @@
+<% provide(:title, "##{@search_tag}") %>
+<% if logged_in? %>
+    <div class="col s6 m4">
+        <h3><%= "##{@search_tag}" %></h3>
+        <%= render 'shared/feed' %>
+    </div>
+<% else %>
+    <!--ホーム画面にリダイレクトかな〜-->
+<% end %>

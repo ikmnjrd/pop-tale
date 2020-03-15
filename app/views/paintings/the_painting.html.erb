@@ -5,7 +5,7 @@
   <!--タグの表示-->
   <div>
   　<% @painting.tag_list.each do |tag| %>
-    　<div class="chip"><%= link_to tag, "/#{tag}" %></div>
+      <div class="chip"><%= link_to tag, search_paintings_url(tag: tag)  %></div>
   　<% end %>
   </div>
   <!--画像表示-->

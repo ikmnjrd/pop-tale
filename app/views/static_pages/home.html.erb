@@ -1,7 +1,6 @@
 <% provide(:title, "Home") %>
 <% if logged_in? %>
     <div class="col s6 m4">
-        <h3>Painting Feed</h3>
         <%= render 'shared/feed' %>
     </div>
 <% else %>
