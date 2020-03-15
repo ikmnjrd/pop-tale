@@ -29,6 +29,8 @@
     <% if current_user?(@painting.user) %>
       <section class="right-align">
         <%= link_to "編集",edit_painting_url, class: "waves-effect waves-light btn"%>
+        <%= link_to "delete", @painting, method: :delete,
+                                       data: { confirm: "You sure?" } %>
       </section>
     <% else %>
       <section class="right-align">

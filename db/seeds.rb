@@ -43,9 +43,9 @@ second_user.paintings.create!(description: "ヤンキー", picture: open("#{Rail
 #end
 
 first_paint = Painting.first
-first_paint.tag_list.add("red", "asshole")
+first_paint.tag_list.add("big", "whale")
 first_paint.save
 
 second_paint = Painting.second
-second_paint.tag_list.add("asshole")
+second_paint.tag_list.add("whale","dead")
 second_paint.save

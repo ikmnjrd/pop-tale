@@ -9,7 +9,7 @@ class PaintingsController < ApplicationController
       flash[:success] = "painting created!"
       JudgmentMailer.new_registration(@painting).deliver_now
       flash[:info] = "まだ審査中だから待ってな！！"
-      redirect_to root_url
+      redirect_to 
     else
       @feed_items = []
       render 'static_pages/home'
@@ -43,7 +43,7 @@ class PaintingsController < ApplicationController
         @painting.destroy
     end
     flash[:success] = "Your the Painting deleted"
-    redirect_to request.referrer || root_url
+    redirect_to current_user
   end
 
   def search
