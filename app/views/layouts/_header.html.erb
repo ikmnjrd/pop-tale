@@ -7,18 +7,16 @@
             
             <% if logged_in? %>
               <li><%= link_to "Users", users_path %></li>
-              <li>
                 <!-- /app/assets/javascripts/init.jsで初期化をしてる -->
                 <!-- Dropdown Trigger -->
-                <%= link_to "AccountMenu" , '#', class: "dropdown-trigger", :data => {:target=>"dropdown1"} %>
+              <li><a href="" class="dropdown-trigger" data-target="dropdown1">
+                <i class="material-icons left">account_circle</i>Account</a>
                 <!-- Dropdown Structure -->
                 <ul id="dropdown1" class="dropdown-content grey darken-2">
                   <li><%= link_to "Profile", current_user,class: "grey-text text-lighten-3" %></li>
                   <li><%= link_to "Settings", edit_user_path(current_user),class: "grey-text text-lighten-3" %></li>
                   <li class="divider"></li>
-                  <li>
-                    <%= link_to "Log out", logout_path, method: :delete ,class: "grey-text text-lighten-3"%>
-                  </li>
+                  <li><%= link_to "Log out", logout_path, method: :delete ,class: "grey-text text-lighten-3"%></li>
                 </ul>  
               </li>
             <% else %>
