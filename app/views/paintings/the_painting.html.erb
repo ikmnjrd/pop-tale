@@ -1,45 +1,54 @@
 <div id="painting-<%= @painting.id %>">
-  <%#s= link_to gravatar_for(painting.user, size: 50), painting.user %>
-  <span class="user"><%= link_to @painting.user.name, @painting.user %></span>
-  <div class="description"><%= @painting.description %></div>
-  <!--タグの表示-->
-  <div>
-  　<% @painting.tag_list.each do |tag| %>
-      <div class="chip"><%= link_to tag, search_paintings_url(tag: tag)  %></div>
-  　<% end %>
-  </div>
-  <!--画像表示-->
-  <div>
-    <% if !@painting.picture.url.nil? %>
-      <!--サイズの指定が悩みどころ-->
-      <%= image_tag(@painting.picture.url) %>
-    <% end %>
-  </div>
-  <p><%= number_to_currency(@painting.price, :unit =>  "JPY", :precision => 0) %></p>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(@painting.created_at) %> ago.
-  </span>
-  
-  <% if @painting.activated == false %>
-    <div>
-      <p>This is not activated!</p>
-    </div>
-  <% else %>
-    <!--購入ボタン（モーダル）&編集ページリンク-->
-    <% if current_user?(@painting.user) %>
-      <section class="right-align">
-        <%= link_to "編集",edit_painting_url, class: "waves-effect waves-light btn"%>
-        <%= link_to "delete", @painting, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-      </section>
-    <% else %>
-      <section class="right-align">
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">購入</a>
-      </section>
-    <% end %>
-  <% end %>
-
 </div>
+
+<div class="container the-painting-container">
+  <div class="row">
+    <div class="col l12">
+      <div class="row">  
+        <div class="col l8 s12">  
+          <!--画像表示-->
+          <div>
+            <% if !@painting.picture.url.nil? %>
+              <!--サイズの指定が悩みどころ-->
+              <%= image_tag(@painting.picture.solo_image.url) %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col l4 s12">
+          <div class="card-panel">
+            <%#= link_to gravatar_for(painting.user, size: 50), painting.user %>
+            <div class="user"><%= link_to @painting.user.name, @painting.user %></div>
+            <div><%= number_to_currency(@painting.price, :unit =>  "JPY", :precision => 0) %></div>
+            <div class="description"><%= @painting.description %></div>
+            <!--タグの表示-->
+            <div>
+  　           <% @painting.tag_list.each do |tag| %>
+                <div class="chip"><%= link_to tag, search_paintings_url(tag: tag)  %></div>
+  　           <% end %>
+            </div>
+            <% if @painting.activated == false %>
+              <div><p>This is not activated!</p></div>
+            <% else %>
+              <!--購入ボタン（モーダル）&編集ページリンク-->
+              <% if current_user?(@painting.user) %>
+                <section class="right-align">
+                  <%= link_to "編集",edit_painting_url, class: "waves-effect waves-light btn"%>
+                  <%= link_to "delete", @painting, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+                </section>
+              <% else %>
+                <section class="right-align">
+                  <a class="waves-effect waves-light btn modal-trigger" href="#modal1" data-target="modal1">購入</a>
+                </section>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <!--モーダル表示部分-->

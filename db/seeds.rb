@@ -35,6 +35,8 @@ first_user.paintings.create!(description: "コククジラ", picture: open("#{Ra
 
 second_user = User.second
 second_user.paintings.create!(description: "ヤンキー", picture: open("#{Rails.root}/db/fixtures/furyo_shounen.png"), activated: true, price: 10000)
+second_user.paintings.create!(description: "打倒東京スカイツリー", picture: open("#{Rails.root}/db/fixtures/tokyo_tower.jpg"), activated: true, price: 400000)
+second_user.paintings.create!(description: "wall of nuts", picture: open("#{Rails.root}/db/fixtures/tyjfjykgo.jpg"), activated: true, price: 99999)
 
 
 #list = ['red', 'blue', 'yellow', 'asshole']

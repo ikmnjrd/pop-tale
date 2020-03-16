@@ -4,7 +4,7 @@
       <% @gallery_items.each do |t| %>
         <div class= 'card col s6 m4'>
           <div>
-            <%= link_to image_tag(t.picture.url ,class: 'card-image', :size =>'300x300'), t %>
+            <%= link_to image_tag(t.picture.gallery_image.url ,class: 'card-image', :size =>'300x300'), t %>
           </div>
           <div class= 'card-content' >
             <p><%= number_to_currency(t.price, :unit =>  "JPY", :precision => 0) %></p>
