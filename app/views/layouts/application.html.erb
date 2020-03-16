@@ -7,14 +7,16 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <%#= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-        <%= javascript_tag("M.toast({html: '#{message}',
+    <div class="ilike-grey-container">
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+          <%#= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+          <%= javascript_tag("M.toast({html: '#{message}',
                              classes: '#000000',
                              displayLength: 5000 })")%>
-      <% end %>
-      <%= yield %>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
     <%= render 'layouts/footer' %>
   </body>

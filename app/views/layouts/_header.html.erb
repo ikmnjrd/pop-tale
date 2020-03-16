@@ -10,14 +10,14 @@
               <li>
                 <!-- /app/assets/javascripts/init.jsで初期化をしてる -->
                 <!-- Dropdown Trigger -->
-                <%= link_to "Account" , '#', class: "dropdown-trigger", :data => {:target=>"dropdown1"} %>
+                <%= link_to "AccountMenu" , '#', class: "dropdown-trigger", :data => {:target=>"dropdown1"} %>
                 <!-- Dropdown Structure -->
-                <ul id="dropdown1" class="dropdown-content">
-                  <li><%= link_to "Profile", current_user %></li>
-                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <ul id="dropdown1" class="dropdown-content grey darken-2">
+                  <li><%= link_to "Profile", current_user,class: "grey-text text-lighten-3" %></li>
+                  <li><%= link_to "Settings", edit_user_path(current_user),class: "grey-text text-lighten-3" %></li>
                   <li class="divider"></li>
                   <li>
-                    <%= link_to "Log out", logout_path, method: :delete %>
+                    <%= link_to "Log out", logout_path, method: :delete ,class: "grey-text text-lighten-3"%>
                   </li>
                 </ul>  
               </li>

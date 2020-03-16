@@ -16,8 +16,8 @@
  */
 
  @import "materialize/components/color-variables";
- $primary-color: color("blue", "lighten-2") !default;
- $secondary-color: color("pink", "lighten-2") !default;
+ $primary-color: color("grey", "darken-1") !default;
+ $secondary-color: color("red", "darken-4") !default;
  @import 'materialize';
  @import 'font-awesome';
  
@@ -25,4 +25,8 @@
 
  .pagination li.active a {
     color: #fff;
+  }
+
+  .ilike-grey-container {
+    @extend .grey, .lighten-4;
   }

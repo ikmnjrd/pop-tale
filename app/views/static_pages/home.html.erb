@@ -1,8 +1,6 @@
 <% provide(:title, "Home") %>
 <% if logged_in? %>
-    <div class="col s6 m4">
-        <%= render 'shared/feed' %>
-    </div>
+  <%= render 'shared/feed' %>
 <% else %>
     <div class="center">
         <%= link_to image_tag("MyImage.png", alt: "My image", width: '300', height: '300', class: "card-panel hoverable"),
