@@ -47,7 +47,6 @@ class PaintingsController < ApplicationController
   end
 
   def search
-    console
     # titleとリダイレクト用
     @search_tag = params[:tag]
     # title以外の実装用
