@@ -47,8 +47,18 @@ class PaintingsController < ApplicationController
   end
 
   def search
+    console
+    # titleとリダイレクト用
     @search_tag = params[:tag]
-    @feed_items = Painting.tagged_with("#{params[:tag]}")
+    # title以外の実装用
+    @convert_tags = params[:tag].gsub(/[\s　]/, ',')
+
+    @feed_items = Painting.tagged_with("#{@convert_tags}")
+    unless @feed_items.any?
+      flash[:unknown_tag] = "お探しのタグは見つかりませんでした。" 
+      redirect_to root_url(tag: @search_tag)
+    end
+
   end
     
   private
