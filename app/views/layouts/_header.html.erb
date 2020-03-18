@@ -7,7 +7,7 @@
               <li>
                 <%= form_tag("/paintings/search", method: "get") do %>
                   <%#= label_tag(:q, "Search for:") %>
-                  <%= search_field_tag "tag", params[:tag], class: "form-control", placeholder: "キーワード検索" %>
+                  <%= search_field_tag "tag", params[:tag], class: "form-control", placeholder: "#タグ検索" %>
                   <span class="header-search-btn">
                     <%= submit_tag "Search"%>
                   </span>
@@ -24,7 +24,7 @@
                 
                 <!-- Dropdown Structure -->
                 <ul id="dropdown1" class="dropdown-content grey darken-2">
-                  <li><%= link_to "Profile", current_user,class: "grey-text text-lighten-3" %></li>
+                  <li><%= link_to "MyPage", current_user,class: "grey-text text-lighten-3" %></li>
                   <li><%= link_to "Settings", edit_user_path(current_user),class: "grey-text text-lighten-3" %></li>
                   <li class="divider"></li>
                   <li><%= link_to "Log out", logout_path, method: :delete ,class: "grey-text text-lighten-3"%></li>

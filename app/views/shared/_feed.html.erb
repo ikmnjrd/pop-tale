@@ -6,9 +6,6 @@
           <div class= 'card'>
             <div class='card-image waves-effect waves-block waves-light'>
               <%= link_to image_tag(t.picture.gallery_image.url ), painting_path(t.id) %>
-              <span class='card-title'>
-                <span class='black-text right-align'><%= number_to_currency(t.price, :unit =>  "JPY", :precision => 0) %></span>
-              </span>
             </div>
           </div>
         </div>
