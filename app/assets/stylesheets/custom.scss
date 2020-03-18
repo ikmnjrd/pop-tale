@@ -50,6 +50,19 @@ aside {
   background-image: image-url("rails.png");
 }
 
+#form1{
+  margin-left: 200px;
+}
+li form{
+  padding-right: 10px;
+}
+
+
+.header-search-btn {
+  //float: left !important;
+  //clear: left;
+  display: none;
+}
 
 /* ここにsidevarで表示する画像の.gravatarを書いてたけど、反映してない*/
 

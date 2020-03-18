@@ -3,21 +3,33 @@
         <div class="nav-wrapper container">
           <%= link_to "Poptale" , root_path, class: "brand-logo" %>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><%= link_to "Home",   root_path %></li>
-            
             <% if logged_in? %>
+              <li>
+                <%= form_tag("/paintings/search", method: "get") do %>
+                  <%#= label_tag(:q, "Search for:") %>
+                  <%= search_field_tag "tag", params[:tag], class: "form-control", placeholder: "キーワード検索" %>
+                  <span class="header-search-btn">
+                    <%= submit_tag "Search"%>
+                  </span>
+                <% end %>              
+              </li>
+              <li><%= link_to "Home",   root_path %></li>
+
               <li><%= link_to "Users", users_path %></li>
-                <!-- /app/assets/javascripts/init.jsで初期化をしてる -->
-                <!-- Dropdown Trigger -->
+              
+              <!-- /app/assets/javascripts/init.jsで初期化をしてる -->
+              <!-- Dropdown Trigger -->
               <li><a href="" class="dropdown-trigger" data-target="dropdown1">
-                <i class="material-icons left">account_circle</i>Account</a>
+                <i class="material-icons right">arrow_drop_down</i>Account</a>
+                
                 <!-- Dropdown Structure -->
                 <ul id="dropdown1" class="dropdown-content grey darken-2">
                   <li><%= link_to "Profile", current_user,class: "grey-text text-lighten-3" %></li>
                   <li><%= link_to "Settings", edit_user_path(current_user),class: "grey-text text-lighten-3" %></li>
                   <li class="divider"></li>
                   <li><%= link_to "Log out", logout_path, method: :delete ,class: "grey-text text-lighten-3"%></li>
-                </ul>  
+                </ul>
+
               </li>
             <% else %>
               <li><%= link_to "Log in", login_path %></li>
