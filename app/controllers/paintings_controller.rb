@@ -9,10 +9,11 @@ class PaintingsController < ApplicationController
       flash[:success] = "painting created!"
       JudgmentMailer.new_registration(@painting).deliver_now
       flash[:info] = "まだ審査中だから待ってな！！"
-      redirect_to 
+      redirect_to current_user
     else
       @feed_items = []
-      render 'static_pages/home'
+      flash[:Missing_elements] = "Missing elements"
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -29,11 +30,18 @@ class PaintingsController < ApplicationController
 
   def update
     @painting = Painting.find(params[:id])
-    if @painting.update_attributes(painting_params)
-      flash[:success] = "The paint updated"
-      redirect_to painting_url
-    else
+
+    if @painting.price < params[:painting][:price].to_i
+      # 本当はエラーメッセージとしてViewへ値を渡したい
+      flash[:price] = '元の値段より高い値段をつけたい場合はサポートへ連絡をお願いいたします。'
       render 'edit'
+    else
+      if @painting.update_attributes(painting_params)
+        flash[:success] = "The paint updated"
+        redirect_to painting_url
+      else
+        render 'edit'
+      end
     end
   end
   

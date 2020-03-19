@@ -51,3 +51,8 @@ first_paint.save
 second_paint = Painting.second
 second_paint.tag_list.add("whale","dead")
 second_paint.save
+
+sixth_paint = Painting.find(6)
+sixth_paint.reload
+sixth_paint.tag_list.add("tokyo","夜景","東京タワー")
+sixth_paint.save

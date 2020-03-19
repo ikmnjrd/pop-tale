@@ -9,19 +9,19 @@
 
        <!--商品説明-->
  　　   <section >
-          <%= f.label :description, '商品の説明' %>
+          <%= f.label :description, '作品の説明' %>
           <%= f.text_field :description, placeholder: "作品の説明文を入力してください"%>
         </section>
         <!--tag-->
         <section >
-          <%= f.label :tag_list, 'タグをカンマ(,)区切りで入力してください' %>
-          <%= f.text_field :tag_list, class: "chips"%>
+          <%= f.label :tag_list, 'タグ' %>
+          <%= f.text_field :tag_list, class: "chips", placeholder: "スペース（ ）もしくは、カンマ(,)区切りで入力してください"%>
         </section>
       
         <!--値段(編集できないようにしなきゃ...)-->
       　<section>
-          <%= f.label :price, '商品の値段を入力してください' %> 
-          <%= f.number_field :price, placeholder: "10000円以上" , class: "field"%>
+          <%= f.label :price, '値段' %> 
+          <%= f.number_field :price, placeholder: "10000円以上で作品の値段を入力してください" , class: "field"%>
         </section>
         <!--submit-->
       　<section class="right-align"><%= f.submit "Post", class: "btn btn-primary" %><section>

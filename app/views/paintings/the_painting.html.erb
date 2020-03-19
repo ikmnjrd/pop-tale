@@ -18,12 +18,12 @@
           <div class="card-panel">
             <%#= link_to gravatar_for(painting.user, size: 50), painting.user %>
             <div class="user"><%= link_to @painting.user.name, @painting.user %></div>
-            <div><%= number_to_currency(@painting.price, :unit =>  "JPY", :precision => 0) %></div>
+            <div><%= number_to_currency(@painting.price, :unit =>  "¥", :precision => 0) %></div>
             <div class="description"><%= @painting.description %></div>
             <!--タグの表示-->
             <div>
   　           <% @painting.tag_list.each do |tag| %>
-                <div class="chip"><%= link_to tag, search_paintings_url(tag: tag)  %></div>
+                <span class="chip blue-grey lighten-5"><%= link_to "##{tag}", search_paintings_url(tag: tag) %></span>
   　           <% end %>
             </div>
             <% if @painting.activated == false %>
