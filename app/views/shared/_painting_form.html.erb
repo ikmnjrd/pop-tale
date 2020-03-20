@@ -3,7 +3,7 @@
   <%= form_for(@painting) do |f| %><%#=, url: { controller: :users, action: :show} %>
     <div class= 'input-field col s12 m8'>
     　<div class="divider"></div>
-    　<%= render 'shared/error_messages', object: f.object %>   
+    　<%= render 'shared/error_messages', object: f.object %>
       <!--画像ファイル-->
       <section>
         <%= f.label :picture, 'アップロード' %>

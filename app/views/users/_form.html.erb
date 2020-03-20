@@ -1,26 +1,36 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, class: 'col s12' %>
-  <%= f.text_field :name, class: 'input-field col s12' %>
+    <section>
+      <%= f.label :name, class: "col s12" %>
+      <%= f.text_field :name %>
+    </section>
 
-  <%= f.label :email, class: 'col s12'  %>
-  <%= f.email_field :email, class: 'input-field col s12' %>
+    <section>
+      <%= f.label :email, class: 'col s12'  %>
+      <%= f.email_field :email %>
+    </section>
 
-  <%= f.label :password, class: 'col s12'  %>
-  <%= f.password_field :password, class: 'input-field col s12' %>
+    <section>
+      <%= f.label :password, class: 'col s12'  %>
+      <%= f.password_field :password %>
+    </section>
 
-  <%= f.label :password_confirmation, "Confirmation", class: 'col s12'  %>
-  <%= f.password_field :password_confirmation, class: 'input-field col s12' %>
+    <section>
+      <%= f.label :password_confirmation, "Confirmation", class: 'col s12'  %>
+      <%= f.password_field :password_confirmation %>
+    </section>
 
-  <%= f.label :avatar, class:'col s12' %>
-  <div class="file-field input-field" >
-    <div class="col s1">
-      <div class="material-icons">add_a_photo</div>
-      <%= f.file_field :avatar %>
-    </div>
-    <input class="file-path validate col s11" type="text" placeholder="ファイルを選択してください">
-  </div>
+    <section>
+      <%= f.label :avatar, class:'col s12' %>
+      <div class="file-field input-field row" >
+        <div class="col s1">
+          <div class="material-icons">add_a_photo</div>
+          <%= f.file_field :avatar %>
+        </div>
+        <input class="file-path validate col s11" type="text" placeholder="ファイルを選択してください">
+      </div>
+    </section>
   
-  <%= f.submit yield(:button_text), class: "btn btn-primary waves-effect waves-light" %>
+  <%= f.submit yield(:button_text), class: "btn waves-effect waves-light" %>
 <% end %>
