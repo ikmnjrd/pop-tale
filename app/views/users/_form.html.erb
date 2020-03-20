@@ -13,8 +13,14 @@
   <%= f.label :password_confirmation, "Confirmation", class: 'col s12'  %>
   <%= f.password_field :password_confirmation, class: 'input-field col s12' %>
 
-  <%= f.label :avatar, class: 'col s12' %>
-  <%= f.file_field :avatar, class: 'file-field col s12' %>
-
-  <%= f.submit yield(:button_text), class: "btn waves-effect waves-light" %>
+  <%= f.label :avatar, class:'col s12' %>
+  <div class="file-field input-field" >
+    <div class="col s1">
+      <div class="material-icons">add_a_photo</div>
+      <%= f.file_field :avatar %>
+    </div>
+    <input class="file-path validate col s11" type="text" placeholder="ファイルを選択してください">
+  </div>
+  
+  <%= f.submit yield(:button_text), class: "btn btn-primary waves-effect waves-light" %>
 <% end %>

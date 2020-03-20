@@ -4,20 +4,20 @@
     <div class= 'input-field col s12 m8'>
     　<div class="divider"></div>
     　<%= render 'shared/error_messages', object: f.object %>   
-     <!--画像ファイル-->
-     <section>
-       <%= f.label :picture, '作品のアップロード' %>
-       <div class="file-field input-field row" >
+      <!--画像ファイル-->
+      <section>
+        <%= f.label :picture, 'アップロード' %>
+        <div class="file-field input-field row" >
           <div class="col s1">
             <div class="large material-icons right">add_a_photo</div>
             <%= f.file_field :picture %>
           </div>
-          <input class="file-path validate col s11" type="text" placeholder="ファイルを選択してください">
+          <input class="file-path validate col s9" type="text" placeholder="ファイルを選択してください">
         </div>
-    </section>
-     <!--商品説明-->
- 　　 <section >
-        <%= f.label :description, '作品の説明' %>
+      </section>
+      <!--商品説明-->
+ 　　  <section >
+        <%= f.label :description, '説明' %>
         <%= f.text_field :description, placeholder: "作品の説明文を入力してください"%>
       </section>
       <!--tag-->
