@@ -8,7 +8,7 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="ilike-grey-container">
-      <div class="container">
+      <div>
         <% flash.each do |message_type, message| %>
           <%#= content_tag(:div, message, class: "alert alert-#{message_type}") %>
           <%= javascript_tag("M.toast({html: '#{message}',

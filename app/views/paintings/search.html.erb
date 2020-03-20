@@ -1,12 +1,14 @@
 <% provide(:title, "#{@search_tag}") %>
 <% if logged_in? %>
-  <div class="col s6 m4">
-    <h3>Search for
-      <% @convert_tags.split(',').reject(&:blank?).each do |t| %>
-        <%= "##{t}" %>
-      <% end %>
-    </h3>
-    <%= render 'shared/feed' %>
+  <div class="container">
+    <div class="col s6 m4">
+      <h3>Search for
+        <% @convert_tags.split(',').reject(&:blank?).each do |t| %>
+          <%= "##{t}" %>
+        <% end %>
+      </h3>
+      <%= render 'shared/feed' %>
+    </div>
   </div>
 <% else %>
   ログインしましょう
