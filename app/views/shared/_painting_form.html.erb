@@ -5,10 +5,16 @@
     　<div class="divider"></div>
     　<%= render 'shared/error_messages', object: f.object %>   
      <!--画像ファイル-->
-     <label>
-     <div class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></div> 
-  　　<%= f.file_field :picture ,class: "custom-file-field"%>
-     </label>
+     <section>
+       <%= f.label :picture, '作品のアップロード' %>
+       <div class="file-field input-field row" >
+          <div class="col s1">
+            <div class="large material-icons right">add_a_photo</div>
+            <%= f.file_field :picture %>
+          </div>
+          <input class="file-path validate col s11" type="text" placeholder="ファイルを選択してください">
+        </div>
+    </section>
      <!--商品説明-->
  　　 <section >
         <%= f.label :description, '作品の説明' %>
