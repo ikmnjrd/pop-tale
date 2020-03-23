@@ -11,4 +11,23 @@
       <%= link_to "Sign up", signup_path, class: "btn-large absolute" %>
     </div>
   </div>
+  <div class="section container gray lighten-4">
+    <div class="center">
+      <h2>- aiilust について-<h2>
+    </div>
+    <div>
+      <h4>イラストレーターがアップロードした作品に対して
+  AIなどを活用し様々な観点から評価することで、
+  aiilust上で販売する価値があると判断されたものだけが
+  購入を考えている人たちの前に並びます。</h4>
+    </div>
+    <div class="row">
+      <div class="col s4"><%= image_tag("drawer.png", width: "300", height: "300")  %></div>
+      <div class="col s4"><%= image_tag("AIkun.png", width: "300", height: "300")  %></div>
+      <div class="col s4"><%= image_tag("paying.png", width: "400", height: "300")  %></div>
+    </div>
+  </div>
+  <div class="section center">
+    <%= link_to "Sign up", signup_path, class: "btn-large" %>
+  </div>
 <% end %>

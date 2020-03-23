@@ -8,9 +8,20 @@ body {
     flex-direction: column;
   }
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
+
+/* footer */
+footer { 
+  margin-top: auto;
+}
+#links{
+  font-size: 30px;
+}
+#footer-test{
+  padding-top: 1px; 
+}
 
 /* sidebar */
 
@@ -79,6 +90,7 @@ li form{
   -webkit-transform: translateY(-50%) translateX(-50%);
   transform: translateY(-50%) translateX(-50%);
 }
+
 
 /* ここにsidevarで表示する画像の.gravatarを書いてたけど、反映してない*/
 

@@ -1,32 +1,37 @@
-<%= image_tag(@painting.picture.url) %>
+
 <div class= "container">
   <div class='row'>
-    <%= form_for(@painting) do |f| %><%#=, url: { controller: :users, action: :show} %>
-      <div class= 'input-field col s12'>
-    　  <div class="divider"></div>
+    <div class="col l8 s12">
+      <%= image_tag(@painting.picture.url) %>
+    </div>
+    <div class="col l4 s12">
+      <%= form_for(@painting) do |f| %><%#=, url: { controller: :users, action: :show} %>
+        <div class= 'input-field col s12'>
+    　    <div class="divider"></div>
     　    <%= render 'shared/error_messages', object: f.object %>  
-       <!--画像ファイル（formとの差分）-->
+          <!--画像ファイル（formとの差分）-->
 
-       <!--商品説明-->
- 　　   <section >
-          <%= f.label :description, '作品の説明' %>
-          <%= f.text_field :description, placeholder: "作品の説明文を入力してください"%>
-        </section>
-        <!--tag-->
-        <section >
-          <%= f.label :tag_list, 'タグ' %>
-          <%= f.text_field :tag_list, class: "chips", placeholder: "スペース（ ）もしくは、カンマ(,)区切りで入力してください"%>
-        </section>
+          <!--商品説明-->
+ 　　      <section >
+            <%= f.label :description, '作品の説明' %>
+            <%= f.text_field :description, placeholder: "作品の説明文を入力してください"%>
+          </section>
+          <!--tag-->
+          <section >
+            <%= f.label :tag_list, 'タグ' %>
+            <%= f.text_field :tag_list, class: "chips", placeholder: "スペース（ ）もしくは、カンマ(,)区切りで入力してください"%>
+          </section>
       
-        <!--値段(編集できないようにしなきゃ...)-->
-      　<section>
-          <%= f.label :price, '値段' %> 
-          <%= f.number_field :price, placeholder: "10000円以上で作品の値段を入力してください" , class: "field"%>
-        </section>
-        <!--submit-->
-      　<section class="right-align"><%= f.submit "Post", class: "btn btn-primary" %><section>
-    　  <div class="divider"></div>
-      </div>
-    <% end %>
+          <!--値段(編集できないようにしなきゃ...)-->
+      　  <section>
+            <%= f.label :price, '値段' %> 
+            <%= f.number_field :price, placeholder: "10000円以上で作品の値段を入力してください" , class: "field"%>
+          </section>
+          <!--submit-->
+      　  <section class="right-align"><%= f.submit "変更を保存する", class: "btn btn-primary" %><section>
+    　    <div class="divider"></div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
