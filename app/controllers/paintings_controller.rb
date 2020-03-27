@@ -60,7 +60,7 @@ class PaintingsController < ApplicationController
     # title以外の実装用
     @convert_tags = params[:tag].gsub(/[\s　]/, ',')
 
-    @feed_items = Painting.tagged_with("#{@convert_tags}")
+    @feed_items = Painting.tagged_with("#{@convert_tags}").paginate(:page => params[:page], :per_page => 30).order(id: :desc)
     unless @feed_items.any?
       flash[:unknown_tag] = "お探しのタグは見つかりませんでした。" 
       redirect_to root_url(tag: @search_tag)

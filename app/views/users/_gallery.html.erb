@@ -1,22 +1,22 @@
 <% if @gallery_items.any? %>
   <h4>Gallery</h4>
   <div class='row'>
-      <% @gallery_items.each do |t| %>
-        <div class= 'card col s6 m4'>
-          <div>
-            <%= link_to image_tag(t.picture.gallery_image.url ,class: 'card-image', :size =>'300x300'), t %>
-          </div>
-        
-          <% if current_user?(@user) %>
-            <% if t.activated == false%>
-                <div>This is not activated!</div>
+    <% @gallery_items.order(id: "desc").each do |t| %>
+      <div class= 'col s12 m6 l4'>
+        <div class="card">
+          <div class='card-image waves-effect waves-block waves-light'>
+            <%= link_to image_tag(t.picture.gallery_image.url), t %>
+            <% if current_user?(@user) %>
+              <% if t.activated == false%>
+                <span class="card-title grey darken-2">Not Activated</span>
+              <% end %>
             <% end %>
-        <% end %>
-        </div>
-      <% end %>
-    </div>
+          </div>
+        </div>  
+      </div>
+    <% end %>
   </div>
-  <%#= will_paginate @feed_items %>
+  <%= will_paginate @gallery_items, renderer: @custom_paginate_renderer %>
 <% else %>
   <h3>Work is not decorated yet.</h3>
 <% end %>

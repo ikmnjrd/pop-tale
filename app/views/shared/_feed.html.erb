@@ -13,5 +13,5 @@
       <% end %>
     </div>
   </div>
-  <%#= will_paginate @feed_items %>
+  <%= will_paginate @feed_items, renderer: @custom_paginate_renderer %>
 <% end %>
