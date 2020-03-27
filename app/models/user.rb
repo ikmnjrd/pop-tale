@@ -69,6 +69,10 @@ class User < ApplicationRecord
     Painting.where("user_id = ?", id)
   end
 
+  def others_gallery
+    Painting.where("user_id = ?", id).where(activated: "true")
+  end
+
   # パスワード再設定のメールを送信する
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now

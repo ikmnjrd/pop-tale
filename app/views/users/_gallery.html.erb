@@ -1,7 +1,7 @@
 <% if @gallery_items.any? %>
   <h4>Gallery</h4>
   <div class='row'>
-    <% @gallery_items.order(id: "desc").each do |t| %>
+    <% @gallery_items.each do |t| %>
       <div class= 'col s12 m6 l4'>
         <div class="card">
           <div class='card-image waves-effect waves-block waves-light'>
