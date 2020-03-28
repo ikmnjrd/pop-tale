@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users
-  resources :paintings,          only: [:create, :destroy, :show, :edit, :update] do
+  namespace :paintings do
+    get :admin
+    post :admin_update
+  end
+  resources :paintings,          except: [:new, :index] do
     collection do
       get 'search'
     end
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
   resource :mypages,    only: [:show]
   namespace :mypages do
     get :purchases
+    get :sold
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]

@@ -32,7 +32,6 @@ class PaintingsController < ApplicationController
     @painting = Painting.find(params[:id])
 
     if @painting.price < params[:painting][:price].to_i
-      # 本当はエラーメッセージとしてViewへ値を渡したい
       flash[:price] = '元の値段より高い値段をつけたい場合はサポートへ連絡をお願いいたします。'
       render 'edit'
     else
@@ -48,7 +47,7 @@ class PaintingsController < ApplicationController
   def destroy
     @painting = Painting.find(params[:id])
     if @painting.present?
-        @painting.destroy
+      @painting.destroy
     end
     flash[:success] = "Your the Painting deleted"
     redirect_to current_user
@@ -65,13 +64,35 @@ class PaintingsController < ApplicationController
       flash[:unknown_tag] = "お探しのタグは見つかりませんでした。" 
       redirect_to root_url(tag: @search_tag)
     end
-
   end
-    
+
+  def admin
+    admin_user
+    @user = current_user
+    @gallery_items = Painting.where(activated: false).paginate(:page => params[:page], :per_page => 30).order(id: :desc)
+  end
+
+  def admin_update
+    admin_user
+    @painting = Painting.find(params[:id])
+    if @painting.update_attributes(activated: params[:activated])
+      flash[:success] = "The paint activated"
+      redirect_to paintings_admin_path
+    else
+      flash[:failed] = "Activating failed"
+      redirect_to paintings_admin_path
+    end
+  end
+
+  
   private
     
     def painting_params
       params.require(:painting).permit(:description, :picture, :price, :tag_list)
+    end
+
+    def painting_judge_params
+      params.require(:painting).permit(:activated)
     end
 
     def correct_user

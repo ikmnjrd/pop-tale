@@ -27,6 +27,14 @@
             </div>
             <% if @painting.activated == false %>
               <div><p>This is not activated!</p></div>
+              <% if current_user.admin? %>
+                <div>
+                  <%= link_to "accept", {controller: "paintings", action: "admin_update", id: @painting.id, activated: true}, class: "btn", 
+                   method: :post, data: { confirm: "Do you accept this?" } %>
+                  <%= link_to "reject", @painting, class: "btn" , method: :delete,
+                                       data: { confirm: "Do you reject this?" } %>
+                </div>
+              <% end %>
             <% else %>
               <!--購入ボタン（モーダル）&編集ページリンク-->
               <% if current_user?(@painting.user) %>
