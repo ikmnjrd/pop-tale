@@ -1,14 +1,13 @@
 class PaintingsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy]
-    before_action :correct_user,   only: :destroy #必要？？
+    before_action :correct_user,   only: :destroy
     before_action :no_judging_paint, only: :create
 
   def create
     @painting = current_user.paintings.build(painting_params)
     if @painting.save
-      flash[:success] = "painting created!"
       JudgmentMailer.new_registration(@painting).deliver_now
-      flash[:info] = "まだ審査中だから待ってな！！"
+      flash[:info] = "審査の完了までしばらくお待ちください"
       redirect_to mypages_path
     else
       @feed_items = []
@@ -59,7 +58,7 @@ class PaintingsController < ApplicationController
     # title以外の実装用
     @convert_tags = params[:tag].gsub(/[\s　]/, ',')
 
-    @feed_items = Painting.tagged_with("#{@convert_tags}").paginate(:page => params[:page], :per_page => 30).order(id: :desc)
+    @feed_items = Painting.where(purchase_id: nil,activated: true).tagged_with("#{@convert_tags}").paginate(:page => params[:page], :per_page => 30).order(id: :desc)
     unless @feed_items.any?
       flash[:unknown_tag] = "お探しのタグは見つかりませんでした。" 
       redirect_to root_url(tag: @search_tag)
