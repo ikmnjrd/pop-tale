@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   end
   resource :mypages,    only: [:show]
   namespace :mypages do
-    get :aaab
     get :purchases
   end
   resources :account_activations, only: [:edit]
