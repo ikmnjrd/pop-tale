@@ -1,39 +1,44 @@
+<% if current_user?(@user) && @user.gallery.where(activated: false).any? %>
+  <p>NOTICE: Your Painting is judging now. Please wait to next upload.</p>
 
-<div class='row'>
-  <%= form_for(@painting) do |f| %><%#=, url: { controller: :users, action: :show} %>
-    <div class= 'input-field col s12 m8'>
-    　<div class="divider"></div>
-    　<%= render 'shared/error_messages', object: f.object %>
-      <!--画像ファイル-->
-      <section>
-        <%= f.label :picture, 'アップロード' %>
-        <div class="file-field input-field row" >
-          <div class="col s1">
-            <div class="large material-icons right">add_a_photo</div>
-            <%= f.file_field :picture %>
+<% else %>
+　<div class='row'>
+    <%= form_for(@painting) do |f| %><%#=, url: { controller: :users, action: :show} %>
+      <div class= 'input-field col s12 m8'>
+    　  <div class="divider"></div>
+    　  <%= render 'shared/error_messages', object: f.object %>
+        <!--画像ファイル-->
+        <section>
+          <%= f.label :picture, 'アップロード' %>
+          <div class="file-field input-field row" >
+            <div class="col s1">
+              <div class="large material-icons right">add_a_photo</div>
+              <%= f.file_field :picture %>
+            </div>
+            <input class="file-path validate col s9" type="text" placeholder="ファイルを選択してください">
           </div>
-          <input class="file-path validate col s9" type="text" placeholder="ファイルを選択してください">
-        </div>
-      </section>
-      <!--商品説明-->
- 　　  <section >
-        <%= f.label :description, '説明' %>
-        <%= f.text_field :description, placeholder: "作品の説明文を入力してください"%>
-      </section>
-      <!--tag-->
-      <section >
-        <%= f.label :tag_list, 'タグ' %>
-        <%= f.text_field :tag_list, class: "chips", placeholder: "スペース（ ）もしくは、カンマ(,)区切りで入力してください"%>
-      </section>
+        </section>
+        <!--商品説明-->
+ 　　    <section >
+          <%= f.label :description, '説明' %>
+          <%= f.text_field :description, placeholder: "作品の説明文を入力してください"%>
+        </section>
+        <!--tag-->
+        <section >
+          <%= f.label :tag_list, 'タグ' %>
+          <%= f.text_field :tag_list, class: "chips", placeholder: "スペース（ ）もしくは、カンマ(,)区切りで入力してください"%>
+        </section>
       
-      <!--値段-->
-    　<section>
-        <%= f.label :price, '値段' %> 
-        <%= f.number_field :price, placeholder: "10000円以上で作品の値段を入力してください" , class: "field"%>
-      </section>
-      <!--submit-->
-    　<section class="right-align"><%= f.submit "Post", class: "btn btn-primary" %><section>
-    　<div class="divider"></div>
-    </div>
-  <% end %>
-</div>
+        <!--値段-->
+    　  <section>
+          <%= f.label :price, '値段' %> 
+          <%= f.number_field :price, placeholder: "10000円以上で作品の値段を入力してください" , class: "field"%>
+        </section>
+        <!--submit-->
+      　<section class="right-align"><%= f.submit "Post", class: "btn btn-primary" %><section>
+      　<div class="divider"></div>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>

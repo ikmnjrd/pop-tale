@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @painting = current_user.paintings.build
     if current_user?(@user)
       #アクティベートされていないものも表示
       @gallery_items = @user.gallery.paginate(:page => params[:page], :per_page => 30).order(id: :desc)
@@ -18,8 +17,7 @@ class UsersController < ApplicationController
       #アクティベートされていないものは表示しない
       @gallery_items = @user.others_gallery.paginate(:page => params[:page], :per_page => 30).order(id: :desc)
     end
-    #@user.galleryのうち、activatedがfalseの数をカウントしたい
-    #.gallery.where(activated = false)
+    
     redirect_to root_url and return unless @user.activated?
   end
   

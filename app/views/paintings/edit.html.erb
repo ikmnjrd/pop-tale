@@ -1,8 +1,8 @@
 
-<div class= "container">
+<div class= "container the-painting-container">
   <div class='row'>
     <div class="col l8 s12">
-      <%= image_tag(@painting.picture.url) %>
+      <%= image_tag(@painting.picture.solo_image.url) %>
     </div>
     <div class="col l4 s12">
       <%= form_for(@painting) do |f| %><%#=, url: { controller: :users, action: :show} %>
