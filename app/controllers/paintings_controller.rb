@@ -9,7 +9,7 @@ class PaintingsController < ApplicationController
       flash[:success] = "painting created!"
       JudgmentMailer.new_registration(@painting).deliver_now
       flash[:info] = "まだ審査中だから待ってな！！"
-      redirect_to current_user
+      redirect_to mypages_path
     else
       @feed_items = []
       flash[:Missing_elements] = "Missing elements"

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
+  get  '/sell',    to: 'static_pages#sell'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   get    '/login',   to: 'sessions#new'
@@ -13,6 +14,11 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+  end
+  resource :mypages,    only: [:show]
+  namespace :mypages do
+    get :aaab
+    get :purchases
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]

@@ -30,7 +30,7 @@ end
 first_user = User.first
 first_user.paintings.create!(description: "座礁したクジラ", picture: open("#{Rails.root}/db/fixtures/kujira_zasyou.png"), activated: true, price: 10000)
 first_user.paintings.create!(description: "骨になったクジラ", picture: open("#{Rails.root}/db/fixtures/shinkai_kujira_hone.png"), activated: true, price: 10000)
-first_user.paintings.create!(description: "セミクジラ", picture: open("#{Rails.root}/db/fixtures/whale_03_semikujira.png"), activated: true, price: 10000)
+first_user.paintings.create!(description: "セミクジラ", picture: open("#{Rails.root}/db/fixtures/whale_03_semikujira.png"), activated: true, price: 10000, purchase_id: 2)
 first_user.paintings.create!(description: "コククジラ", picture: open("#{Rails.root}/db/fixtures/whale_07_kokukujira.png"), activated: true, price: 10000)
 
 second_user = User.second
@@ -51,6 +51,14 @@ first_paint.save
 second_paint = Painting.second
 second_paint.tag_list.add("whale","dead")
 second_paint.save
+
+third_paint = Painting.find(3)
+third_paint.tag_list.add("whale")
+third_paint.save
+
+fourth_paint = Painting.find(4)
+fourth_paint.tag_list.add("whale")
+fourth_paint.save
 
 sixth_paint = Painting.find(6)
 sixth_paint.reload

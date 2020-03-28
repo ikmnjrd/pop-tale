@@ -66,11 +66,11 @@ class User < ApplicationRecord
   end
 
   def gallery
-    Painting.where("user_id = ?", id)
+    Painting.where("user_id = ?", id).where(purchase_id: nil)
   end
 
   def others_gallery
-    Painting.where("user_id = ?", id).where(activated: "true")
+    Painting.where("user_id = ?", id).where(activated: "true").where(purchase_id: nil)
   end
 
   # パスワード再設定のメールを送信する

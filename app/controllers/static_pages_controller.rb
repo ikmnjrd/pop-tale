@@ -1,10 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-      # これなんで必要なんだっけ？
+      # これなんで必要なんだっけ？ ← おそらくsellアクション？のため
       @painting = current_user.paintings.build
       #@feed_items = current_user.feed
-      @feed_items = Painting.all.paginate(:page => params[:page], :per_page => 30).order(id: :desc)
+      @feed_items = Painting.where(purchase_id: nil).paginate(:page => params[:page], :per_page => 30).order(id: :desc)
       @custom_paginate_renderer = custom_paginate_renderer
     else
       @feed_items = []
@@ -18,6 +18,10 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
+  end
+
+  def sell
+    @painting = current_user.paintings.build
   end
 
 end
