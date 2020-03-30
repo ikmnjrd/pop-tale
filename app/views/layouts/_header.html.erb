@@ -16,6 +16,9 @@
               <li><%= link_to "Home",   root_path %></li>
 
               <li><%= link_to "Upload", sell_path %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "Users", users_path %></li>
+              <% end %>
               
               <!-- /app/assets/javascripts/init.jsで初期化をしてる -->
               <!-- Dropdown Trigger -->
@@ -25,7 +28,6 @@
                 <!-- Dropdown Structure -->
                 <ul id="dropdown1" class="dropdown-content grey darken-2">
                   <li><%= link_to "MyPage", mypages_path,class: "grey-text text-lighten-3" %></li>
-                  <li><%= link_to "Users", users_path,class: "grey-text text-lighten-3" %></li>
                   <li class="divider"></li>
                   <li><%= link_to "Log out", logout_path, method: :delete ,class: "grey-text text-lighten-3"%></li>
                 </ul>

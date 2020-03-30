@@ -1,13 +1,15 @@
 <% provide(:title, "Forgot password") %>
+
+<div class="container">
 <h1>Forgot password</h1>
+  <div class="row">
+    <div class="col l12">
+      <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+        <%= f.label :email , class: 'col s12' %>
+        <%= f.email_field :email, class: 'input-field col s12' %>
 
-<div class="row">
-  <div class="col l12">
-    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
-      <%= f.label :email , class: 'col s12' %>
-      <%= f.email_field :email, class: 'input-field col s12' %>
-
-      <%= f.submit "Submit", class: "btn waves-effect waves-light" %>
-    <% end %>
+        <%= f.submit "Submit", class: "btn waves-effect waves-light" %>
+      <% end %>
+    </div>
   </div>
 </div>
