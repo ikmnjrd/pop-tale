@@ -55,6 +55,8 @@ gem 'mini_magick', '~> 4.8'
 # https://github.com/mbleigh/acts-as-taggable-on
 gem 'acts-as-taggable-on', '~> 6.0'
 
+gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
