@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  # before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  # devise用のbeforeアクション
+  before_action :authenticate_user!, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
+  include ApplicationHelper
+
   def index
-    @users = User.where(activated: true).paginate(:page => params[:page], :per_page => 30).order(id: :asc)
+    @users = User.where.not(confirmed_at: nil).paginate(:page => params[:page], :per_page => 30).order(id: :asc)
     @custom_paginate_renderer = custom_paginate_renderer
   end
 
@@ -18,7 +22,8 @@ class UsersController < ApplicationController
       @gallery_items = @user.others_gallery.paginate(:page => params[:page], :per_page => 30).order(id: :desc)
     end
     
-    redirect_to root_url and return unless @user.activated?
+    # unless以下の文はもともと「@user.activated?」
+    redirect_to root_url and return unless @user.active_for_authentication?
   end
   
   def new

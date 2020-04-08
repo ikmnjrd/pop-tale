@@ -29,12 +29,12 @@
                 <ul id="dropdown1" class="dropdown-content grey darken-2">
                   <li><%= link_to "MyPage", mypages_path,class: "grey-text text-lighten-3" %></li>
                   <li class="divider"></li>
-                  <li><%= link_to "Log out", logout_path, method: :delete ,class: "grey-text text-lighten-3"%></li>
+                  <li><%= link_to "Log out", destroy_user_session_path, method: :delete ,class: "grey-text text-lighten-3"%></li>
                 </ul>
 
               </li>
             <% else %>
-              <li><%= link_to "Log in", login_path %></li>
+              <li><%= link_to "Log in", new_user_session_path %></li>
             <% end %>
           </ul>
         </div>

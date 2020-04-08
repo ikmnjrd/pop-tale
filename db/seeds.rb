@@ -9,10 +9,11 @@
 User.create!(name:  "dodosuko shingo",
     email: "thanks@yaecho.jp",
     password:              "949sYfiCy5wxG",
-    password_confirmation: "949sYfiCy5wxG",
+    #password_confirmation: "949sYfiCy5wxG",
     admin: true,
-    activated: true,
-    activated_at: Time.zone.now)
+    #activated: true,
+    #activated_at: Time.zone.now,
+    confirmed_at: Time.zone.now)
 
 
 45.times do |n|
@@ -22,9 +23,10 @@ password = "password"
 User.create!(name:  name,
       email: email,
       password:              password,
-      password_confirmation: password,
-      activated: true,
-      activated_at: Time.zone.now)
+      #password_confirmation: password,
+      #activated: true,
+      #activated_at: Time.zone.now,
+      confirmed_at: Time.zone.now)
 end
 
 first_user = User.first

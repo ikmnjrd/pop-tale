@@ -8,7 +8,7 @@
     <%= image_tag("TopPage.jpg", alt: "Top image", class: "full-screen")  %>
     
     <div>
-      <%= link_to "Sign up", signup_path, class: "btn-large absolute" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn-large absolute" %>
     </div>
   </div>
   <div class="section container gray lighten-4">
@@ -28,6 +28,6 @@
     </div>
   </div>
   <div class="section center">
-    <%= link_to "Sign up", signup_path, class: "btn-large" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn-large" %>
   </div>
 <% end %>
