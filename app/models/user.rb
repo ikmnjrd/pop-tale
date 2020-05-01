@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,:confirmable
+         :recoverable, :rememberable, :validatable,:confirmable,:omniauthable, :omniauth_providers => [:stripe_connect]
   has_many :paintings
   #attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email

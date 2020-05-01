@@ -55,7 +55,17 @@ gem 'mini_magick', '~> 4.8'
 # https://github.com/mbleigh/acts-as-taggable-on
 gem 'acts-as-taggable-on', '~> 6.0'
 
+# ログイン周りの実装
 gem 'devise'
+
+# stripe
+gem 'stripe'
+
+# stripe connect用のomni-auth
+gem 'omniauth-stripe-connect'
+
+# コントローラーの変数をjavascriptでつかうためのもの
+gem 'gon'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -68,6 +78,8 @@ group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # 環境変数を.envファイルで設定するgem
+  gem 'dotenv-rails'
 end
 
 group :development do

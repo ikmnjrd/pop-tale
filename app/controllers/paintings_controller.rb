@@ -1,6 +1,6 @@
 class PaintingsController < ApplicationController
     #before_action :logged_in_user, only: [:create, :destroy]
-    before_action :authenticate_user!, only: [:create, :destroy]
+    before_action :authenticate_user!
     before_action :correct_user,   only: :destroy
     before_action :no_judging_paint, only: :create
 

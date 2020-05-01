@@ -32,3 +32,6 @@
 
 # VScodeのワークスペースなので無視する
 /pop-tale.code-workspace/
+
+# 環境変数が書かれているのでignore
+/.env

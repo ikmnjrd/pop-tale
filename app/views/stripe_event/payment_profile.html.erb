@@ -1,0 +1,144 @@
+<div class="container">
+
+  <div>
+    <% if !@painting.picture.url.nil? %>
+      <%= image_tag(@painting.picture.solo_image.url) %>
+    <% end %>
+  </div>
+
+  <form id="payment-form">
+    <div id="card-element">
+      <!-- Elements will create input elements here -->
+    </div>
+    
+    <button id="submit" data-secret="<%= @payment_intent.client_secret %>" >
+      <div class="spinner hidden" id="spinner"></div>
+      <span id="button-text">Pay</span>
+    </button>
+
+    <!-- We'll put the error messages in this element -->
+    <div id="card-errors" role="alert"></div>
+
+    <p class="result-message hidden">
+      Payment succeeded, see the result in your
+      <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+    </p>
+  </form>
+</div>
+
+<script>
+var stripe = Stripe(gon.pk_key);
+var elements = stripe.elements();
+
+// Set up Stripe.js and Elements to use in checkout form
+var style = {
+      base: {
+        color: "#32325d",
+        fontFamily: 'Arial, sans-serif',
+        fontSmoothing: "antialiased",
+        fontSize: "16px",
+        "::placeholder": {
+          color: "#32325d"
+        }
+      },
+      invalid: {
+        fontFamily: 'Arial, sans-serif',
+        color: "#fa755a",
+        iconColor: "#fa755a"
+      }
+    };
+
+var card = elements.create("card", { style: style });
+card.mount("#card-element");
+
+//イベントリスナー
+card.addEventListener('change', function(event) {
+  var displayError = document.getElementById('card-errors');
+  if (event.error) {
+    displayError.textContent = event.error.message;
+  } else {
+    displayError.textContent = '';
+  }
+});
+
+//Submit the payment
+var form = document.getElementById('payment-form');
+//var clientSecret = '<%== JSON.dump(@payment_intent.client_secret) %>';
+var clientSecret = '<%= @payment_intent.client_secret %>';
+
+form.addEventListener('submit', function(ev) {
+  ev.preventDefault();
+  loading(true);
+  stripe.confirmCardPayment(clientSecret, {
+    payment_method: {
+      card: card,
+      billing_details: {
+        name: '<%= current_user.name %>'
+      }
+    }
+  }).then(function(result) {
+    if (result.error) {
+      // Show error to your customer (e.g., insufficient funds)
+      console.log(result.error.message);
+      //参照 https://stripe.com/docs/payments/integration-builder 
+      showError(result.error.message);
+    } else {
+      // The payment has been processed!
+      if (result.paymentIntent.status === 'succeeded') {
+        //参照 https://stripe.com/docs/payments/integration-builder
+        orderComplete(result.paymentIntent.id);
+        
+        var action = result.paymentIntent.next_action;
+        if (action && action.type === 'redirect_to_url') {
+          window.location = action.redirect_to_url.url;
+        }
+        console.log(window.location.search);
+        window.location = '<%= @redirect_url %>' + window.location.search;
+        
+        // Show a success message to your customer
+        // There's a risk of the customer closing the window before callback
+        // execution. Set up a webhook or plugin to listen for the
+        // payment_intent.succeeded event that handles any business critical
+        // post-payment actions.
+      }
+    }
+  });
+});
+
+/* ------- UI helpers ------- */
+// Shows a success message when the payment is complete
+var orderComplete = function(paymentIntentId) {
+  loading(false);
+  document
+    .querySelector(".result-message a")
+    .setAttribute(
+      "href",
+      "https://dashboard.stripe.com/test/payments/" + paymentIntentId
+    );
+  document.querySelector(".result-message").classList.remove("hidden");
+  document.querySelector("button").disabled = true;
+};
+// Show the customer the error from Stripe if their card fails to charge
+var showError = function(errorMsgText) {
+  loading(false);
+  var errorMsg = document.querySelector("#card-errors");
+  errorMsg.textContent = errorMsgText;
+  setTimeout(function() {
+    errorMsg.textContent = "";
+  }, 4000);
+};
+// Show a spinner on payment submission
+var loading = function(isLoading) {
+  if (isLoading) {
+    // Disable the button and show a spinner
+    document.querySelector("button").disabled = true;
+    document.querySelector("#spinner").classList.remove("hidden");
+    document.querySelector("#button-text").classList.add("hidden");
+  } else {
+    document.querySelector("button").disabled = false;
+    document.querySelector("#spinner").classList.add("hidden");
+    document.querySelector("#button-text").classList.remove("hidden");
+  }
+};
+
+</script>

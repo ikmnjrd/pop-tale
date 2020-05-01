@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'stripe_event/stripe_callback'
+  get 'stripe_event/payment_profile'
+  get 'stripe_event/payment_process'
+  #post 'stripe_event/payment_process'
+  #post "paintings/:id", to: "stripe_event#payment_process", as: "charge_test"
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   root 'static_pages#home'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
@@ -24,6 +29,7 @@ Rails.application.routes.draw do
   namespace :mypages do
     get :purchases
     get :sold
+    get :connect_stripe
   end
   #resources :account_activations, only: [:edit]
   #resources :password_resets,     only: [:new, :create, :edit, :update]

@@ -13,4 +13,7 @@ class MypagesController < ApplicationController
     @user = current_user
     @gallery_items = Painting.where(purchase_id: @user.id).paginate(:page => params[:page], :per_page => 30).order(id: :desc)
   end
+
+  def connect_stripe
+  end
 end
