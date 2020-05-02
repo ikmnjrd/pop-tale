@@ -1,7 +1,2 @@
-<div class="container">
-  <div class="outer">
-      <%= link_to stripe_url, class: "inner" do %>
-        <%= image_tag "connect-with-stripe.png", :size =>"285x50" %>
-      <% end %>
-  </div>
-</div>
+<% provide(:main_area, "btn_connect_stripe") %>
+<%= render 'nav_menu' %>

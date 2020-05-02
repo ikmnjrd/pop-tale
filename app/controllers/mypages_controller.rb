@@ -6,7 +6,7 @@ class MypagesController < ApplicationController
 
   def sold
     @user = current_user
-    @gallery_items = Painting.where.not(purchase_id: nil).paginate(:page => params[:page], :per_page => 30).order(id: :desc)
+    @gallery_items = Painting.where(user_id: @user.id).where.not(purchase_id: nil).paginate(:page => params[:page], :per_page => 30).order(id: :desc)
   end
 
   def purchases

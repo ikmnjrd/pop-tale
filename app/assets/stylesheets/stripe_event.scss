@@ -48,7 +48,7 @@
   padding: 40px;
 }
 
-input {
+.Input-Element {
   border-radius: 6px;
   margin-bottom: 6px;
   padding: 12px;
@@ -93,7 +93,7 @@ input {
 }
 
 /* Buttons and links */
-button {
+#stripe-submit {
   background: #5469d4;
   color: #ffffff;
   font-family: Arial, sans-serif;
@@ -109,10 +109,10 @@ button {
   width: 100%;
 }
 
-button:hover {
+#stripe-submit:hover {
   filter: contrast(115%);
 }
-button:disabled {
+#stripe-submit:disabled {
   opacity: 0.5;
   cursor: default;
 }
