@@ -43,6 +43,10 @@
                   <%= link_to "delete", @painting, method: :delete,
                                        data: { confirm: "You sure?" } %>
                 </section>
+              <% elsif @painting.purchase_id.present? %>
+                <section class="right-align">
+                  <p>購入済</p>
+                </section>
               <% else %>
                 <section class="right-align">
                   <a class="waves-effect waves-light btn modal-trigger" href="#modal1" data-target="modal1">購入</a>
