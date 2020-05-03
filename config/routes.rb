@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
   get  '/sell',    to: 'static_pages#sell'
+  get  '/privacy_policy', to: 'static_pages#privacy_policy'
+  get  '/service_term',    to: 'static_pages#service_term'
   #get  '/signup',  to: 'users#new'
   #post '/signup',  to: 'users#create'
   #get    '/login',   to: 'sessions#new'

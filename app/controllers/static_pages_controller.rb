@@ -17,6 +17,12 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def service_term
+  end
+
+  def privacy_policy
+  end
+
   def sell
     @user = current_user
     @painting = current_user.paintings.build

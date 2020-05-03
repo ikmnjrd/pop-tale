@@ -67,6 +67,9 @@ gem 'omniauth-stripe-connect'
 # コントローラーの変数をjavascriptでつかうためのもの
 gem 'gon'
 
+# 利用規約とプライバシーポリシーをMarkdownで管理するため
+gem 'redcarpet'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

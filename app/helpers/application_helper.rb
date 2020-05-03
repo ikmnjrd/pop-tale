@@ -20,4 +20,17 @@ module ApplicationHelper
     #"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=#{ENV['STRIPE_CLIENT_ID']}&scope=read_write"
     "https://connect.stripe.com/express/oauth/authorize?redirect_uri=/users/auth/stripe_connect/callback&client_id=#{ENV['STRIPE_CLIENT_ID']}&state={STATE_VALUE}&stripe_user[email]=#{current_user.email}"
   end
+  
+  # gem 'redcarpet'によるヘルパー
+  def privacy_policy
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    markdown.render(File.read(Rails.root.join('privacy_policy.md')))
+  end
+  
+  # gem 'redcarpet'によるヘルパー
+  def service_term
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    markdown.render(File.read(Rails.root.join('service_term.md')))
+
+  end
 end
