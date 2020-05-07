@@ -10,6 +10,11 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def sell
+    @user = current_user
+    @painting = current_user.paintings.build
+  end
+
   def help
   end
 
@@ -25,10 +30,7 @@ class StaticPagesController < ApplicationController
   def privacy_policy
   end
 
-  def sell
-    @user = current_user
-    @painting = current_user.paintings.build
-  end
+  
 
   private
 

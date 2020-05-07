@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>問い合わせフォーム</h2>
+　<div class='row'>
+    <%= form_for(@contact, url: contact_thanks_path) do |f| %>
+      <div class= 'input-field col s12 m8'>
+    　  <div class="divider"></div>
+    　  <%= render 'shared/error_messages', object: f.object %>
+        <!--商品説明-->
+ 　　    <section >
+          <%= f.label :name, '名前' %>
+          <%= f.text_field :name, placeholder: "名前を入力してください"%>
+        </section>
+        <!--tag-->
+        <section >
+          <%= f.label :email, 'E-mail' %>
+          <%= f.text_field :email, placeholder: "メールアドレスを入力してください"%>
+        </section>
+      
+        <!--値段-->
+    　  <section>
+          <%= f.label :message, '問い合わせ内容' %> 
+          <%= f.text_field :message, class: "input-field" , placeholder: "お問い合わせ内容を入力してください" %>
+        </section>
+        <!--submit-->
+      　<section class="right-align"><%= f.submit "Post", class: "btn btn-primary" %><section>
+      　<div class="divider"></div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
