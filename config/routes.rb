@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'stripe_event/stripe_callback'
   get 'stripe_event/payment_profile'
   get 'stripe_event/payment_process'
-  get 'stripe_event/revoke_stripe'
+  #get 'stripe_event/revoke_stripe'
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   root 'static_pages#home'
   get  '/help',    to: 'static_pages#help'

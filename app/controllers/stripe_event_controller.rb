@@ -40,6 +40,7 @@ class StripeEventController < ApplicationController
     redirect_to mypage_path #指定のPaintingのパスにする
   end
 
+  # あとで実装（今はルーティングしてない）
   def revoke_stripe
     Stripe::OAuth.deauthorize({
       client_id: 'ca_GzhdixzBgTTRUcjfKg7WkrnSDUE1xn69',
