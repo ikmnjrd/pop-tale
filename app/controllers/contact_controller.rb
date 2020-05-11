@@ -4,11 +4,6 @@ class ContactController < ApplicationController
     @contact = Contact.new
   end
 
-  def confirm
-    # 入力値のチェック
-    
-  end
-
   ##### 問い合わせ完了画面の処理
   def thanks
     @contact = Contact.new(contact_params)

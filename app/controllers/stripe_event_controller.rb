@@ -39,5 +39,15 @@ class StripeEventController < ApplicationController
     flash[:error] = e.message
     redirect_to mypage_path #指定のPaintingのパスにする
   end
+
+  def revoke_stripe
+    Stripe::OAuth.deauthorize({
+      client_id: 'ca_GzhdixzBgTTRUcjfKg7WkrnSDUE1xn69',
+      stripe_user_id: 'acct_1Ggu6YClYQGTKHdu',#user.stripe_uid,
+    })
+    flash[:success] = "stripe設定を取り消しました"
+    redirect_to root_path
+  end
+
   
 end
