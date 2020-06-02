@@ -20,10 +20,10 @@ stripe connectを利用することで、購入者は簡単に購入を。販売
 
 ## 使用している言語や技術など
 
-Ruby on Rails(webフレームワーク)
-materialize（CSSフレームワーク）
-stripe connect(決済用API)
-heroku
+- Ruby on Rails(webフレームワーク)
+- materialize（CSSフレームワーク）
+- stripe connect(決済用API)
+- heroku
 
  
 ## その他
