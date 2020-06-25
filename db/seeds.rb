@@ -11,8 +11,8 @@ User.create!(name:  "shingo",
     password:              "949sYfiCy5wxG",
     #password_confirmation: "949sYfiCy5wxG",
     admin: true,
-    #activated: true,
-    #activated_at: Time.zone.now,
+    activated: true,
+    activated_at: Time.zone.now,
     confirmed_at: Time.zone.now)
 
 
