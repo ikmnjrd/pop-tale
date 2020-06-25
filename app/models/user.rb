@@ -72,6 +72,7 @@ class User < ApplicationRecord
   end
 
   def others_gallery
+    #activatedがtrueではなくてstripe_uidがtrue？
     Painting.where("user_id = ?", id).where(activated: true).where(purchase_id: nil)
   end
 
