@@ -1,24 +1,36 @@
 # README
+池田が就職活動のために一時的に公開しているwebアプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## 簡単な説明
+画像の著作権販売サイトです。
+stripe connectを利用することで、購入者は簡単に購入を。販売者は簡単に売上を受け取ることができます。
+販売される画像（とその著作権）は全て、サイト管理者が事前に許可したものであり、販売者は10,000円以上の好きな値段で販売が可能です。
 
-* Ruby version
+ 
+***デモ***
+ 
+![デモ](https://image-url.gif)
+ 
+## 機能
+- メールアドレスによるユーザー登録と名前などの情報の登録機能
+- クレジットカード決済機能
+- 販売者によるstripe登録機能（売上金の反映や振込先など）
+- 販売者登録済みのユーザーを対象とした画像アップロード機能
+- 投稿画像への複数のタグの付与/編集機能
+- 投稿画像のタグの検索（単一のタグの検索、and検索に対応）
+- 投稿画像の掲載可否を決定するための管理画面（管理者へのメール通知）
+- 問合せフォーム
 
-* System dependencies
 
-* Configuration
+## 使用している言語や技術など
 
-* Database creation
+- Ruby on Rails(webフレームワーク)
+- materialize（CSSフレームワーク）
+- stripe connect(クレジットカード決済用API)
+- heroku
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
+## その他
+  
+Twitter: [@iKmnjrD](https://twitter.com/iKmnrjd) 
