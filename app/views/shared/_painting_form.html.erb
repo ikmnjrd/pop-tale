@@ -32,7 +32,7 @@
         <!--値段-->
     　  <section>
           <%= f.label :price, '値段' %> 
-          <%= f.number_field :price, placeholder: "10000円以上で作品の値段を入力してください" , class: "field"%>
+          <%= f.number_field :price, placeholder: "10000円以上で作品の値段を入力してください" , class: "field", step: "100"%>
         </section>
         <!--submit-->
       　<section class="right-align"><%= f.submit "Post", class: "btn btn-primary" %><section>
