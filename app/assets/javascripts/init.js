@@ -19,5 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     //タグの機能（Chips）の初期化
     chips_elems = document.querySelectorAll('.chips');
     instances = M.Chips.init(chips_elems, {});
+
+    //サイドナビ（スマホ用）
+    sidenav_elems = document.querySelectorAll('.sidenav');
+    sidenav_options = {};
+    M.Sidenav.init(sidenav_elems, sidenav_options);
+    
     
 });
