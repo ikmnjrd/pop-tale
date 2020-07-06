@@ -4,27 +4,16 @@
     <%= render 'shared/feed' %>
   </div>
 <% else %>
-  <div class="relative">
-    <%= image_tag("TopPage.jpg", alt: "Top image", class: "full-screen")  %>
-    
-    <div>
-      <%= link_to "Sign up", new_user_registration_path, class: "btn-large absolute" %>
-    </div>
+  <div class="fixed-bg bg-image2 full-screen">
   </div>
-  <div class="section container gray lighten-4">
-    <div class="center">
-      <h2>- aiilustとは-<h2>
-    </div>
-    <div>
-      <h4>様々な観点から厳選されたイラストの販売・購入プラットフォーム</h4>
-    </div>
-    <div class="row">
-      <div class="col s4"><%= image_tag("drawer.png", width: "300", height: "300")  %></div>
-      <div class="col s4"><%= image_tag("AIkun.png", width: "300", height: "300")  %></div>
-      <div class="col s4"><%= image_tag("paying.png", width: "400", height: "300")  %></div>
-    </div>
+  <div class="text-toppage">
+    <h3 class="center">What's aiilust?</h3>
+    <h5 class="center">商用利用可能なイラストの売買サービス。</h5>
+    <h5 class="center">購入したイラストはあなただけのものになります。</h5>
   </div>
-  <div class="section center">
-    <%= link_to "Sign up", new_user_registration_path, class: "btn-large" %>
+  <div class="fixed-bg bg-image1 full-screen relative">
+  　　<div class="absolute">
+      <%= link_to "利用登録", new_user_registration_path, class: "btn-large" %>
+    </div>
   </div>
 <% end %>

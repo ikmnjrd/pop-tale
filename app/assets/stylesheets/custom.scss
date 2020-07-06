@@ -75,9 +75,10 @@ li form{
   display: none;
 }
 
+/* トップページ */
 .full-screen {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .relative {
@@ -89,6 +90,24 @@ li form{
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
   transform: translateY(-50%) translateX(-50%);
+}
+
+.fixed-bg {
+  background-size: cover;
+  -webkit-background-size: cover;
+  background-attachment: fixed;
+  //background-image: linear-gradient(hsl(10,90,66), transparent 70%);
+}
+.bg-image1 {
+  background-image: image-url('concreatwall.jpeg');
+}
+
+.bg-image2 {
+  background-image: image-url('concreate_entrance.jpg');
+}
+
+.text-toppage {
+  padding-bottom: 2rem;
 }
 
 .card-panel.card-panel--color{
