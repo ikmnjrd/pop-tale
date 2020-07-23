@@ -27,7 +27,7 @@ User.create!(name:  name,
       #activated: true,
       #activated_at: Time.zone.now,
       confirmed_at: Time.zone.now)
-#end
+end
 
 first_user = User.first
 first_user.paintings.create!(description: "a first tree", picture: open("#{Rails.root}/db/fixtures/hazimete_no_tree.jpg"), activated: true, price: 1000000)
