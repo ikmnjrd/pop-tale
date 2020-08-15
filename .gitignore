@@ -37,4 +37,4 @@
 /.env
 
 # stripeのデータを消すためのidを入れてしまっているので一時的にignore
-/app/controllers/stripe_event_controller.rb
+stripe_event_controller.rb
