@@ -28,7 +28,7 @@ class StripeEventController < ApplicationController
 
   def payment_process
     # before_actionを入れればいいのかな...
-    #どうやって値を渡そうか
+    # どうやって値を渡そうか
     @painting = Painting.find(params[:painting_id])
     
     # 売れた時の処理
