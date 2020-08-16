@@ -1,0 +1,13 @@
+<li>
+  <%#= gravatar_for user, size: 50 %>
+  <% if user.avatar.present? %>
+    <%= image_tag(user.avatar.thumb.url) %>
+  <% else %>
+    <%= image_tag 'hatena.jpeg', :size =>'50x50' %>
+  <% end %>
+  <%= link_to user.name, user %>
+  <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</li>

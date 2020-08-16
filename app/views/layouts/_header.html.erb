@@ -1,0 +1,76 @@
+<!--sidenav（ハンバーガーメニュー）-->
+
+<ul class="sidenav" id="mobile-demo">
+  <% if logged_in? %>
+    <li>
+      <%= form_tag("/paintings/search", method: "get") do %>
+        <%#= label_tag(:q, "Search for:") %>
+        <%= search_field_tag "tag", params[:tag], class: "form-control", placeholder: "#タグ検索" %>
+        <span class="header-search-btn">
+          <%= submit_tag "Search"%>
+        </span>
+      <% end %>              
+    </li>
+    <li><%= link_to "Home",   root_path %></li>
+
+    <li><%= link_to "Upload", sell_path %></li>
+    <% if current_user.admin? %>
+      <li><%= link_to "Users", users_path %></li>
+    <% end %>
+              
+    
+
+    <li><%= link_to "MyPage", mypages_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+
+  <% else %>
+    <li><%= link_to "Log in", new_user_session_path %></li>
+  <% end %>
+</ul>
+
+<!-- ヘッダー -->
+<header class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper container">
+          <%= link_to "aiilust" , root_path, class: "brand-logo" %>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if logged_in? %>
+              <li>
+                <%= form_tag("/paintings/search", method: "get") do %>
+                  <%#= label_tag(:q, "Search for:") %>
+                  <%= search_field_tag "tag", params[:tag], class: "form-control", placeholder: "#タグ検索" %>
+                  <span class="header-search-btn">
+                    <%= submit_tag "Search"%>
+                  </span>
+                <% end %>              
+              </li>
+              <li><%= link_to "Home",   root_path %></li>
+
+              <li><%= link_to "Upload", sell_path %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "Users", users_path %></li>
+              <% end %>
+              
+              <!-- /app/assets/javascripts/init.jsで初期化をしてる -->
+              <!-- Dropdown Trigger -->
+              <li><a href="" class="dropdown-trigger" data-target="dropdown1">
+                <i class="material-icons right">arrow_drop_down</i>Account</a>
+                
+                <!-- Dropdown Structure -->
+                <ul id="dropdown1" class="dropdown-content grey darken-2">
+                  <li><%= link_to "MyPage", mypages_path,class: "grey-text text-lighten-3" %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Log out", destroy_user_session_path, method: :delete ,class: "grey-text text-lighten-3"%></li>
+                </ul>
+
+              </li>
+            <% else %>
+              <li><%= link_to "Log in", new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+    </nav>
+    
+</header>

@@ -1,0 +1,36 @@
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+    <section>
+      <%= f.label :name, class: "col s12" %>
+      <%= f.text_field :name %>
+    </section>
+
+    <section>
+      <%= f.label :email, class: 'col s12'  %>
+      <%= f.email_field :email %>
+    </section>
+
+    <section>
+      <%= f.label :password, class: 'col s12'  %>
+      <%= f.password_field :password %>
+    </section>
+
+    <section>
+      <%= f.label :password_confirmation, "Confirmation", class: 'col s12'  %>
+      <%= f.password_field :password_confirmation %>
+    </section>
+
+    <section>
+      <%= f.label :avatar, class:'col s12' %>
+      <div class="file-field input-field row" >
+        <div class="col s1">
+          <div class="material-icons">add_a_photo</div>
+          <%= f.file_field :avatar %>
+        </div>
+        <input class="file-path validate col s11" type="text" placeholder="ファイルを選択してください">
+      </div>
+    </section>
+  
+  <%= f.submit yield(:button_text), class: "btn right" %>
+<% end %>

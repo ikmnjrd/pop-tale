@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= render 'layouts/head' %>
+    <%= render 'layouts/shim' %>
+    <%= include_gon %>
+  </head>
+  <body class="ilike-grey-container">
+    <%= render 'layouts/header' %>
+    <div >
+      <div>
+        <% flash.each do |message_type, message| %>
+          <%#= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+          <%= javascript_tag("M.toast({html: '#{message}',
+                             classes: '#000000',
+                             displayLength: 5000 })")%>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

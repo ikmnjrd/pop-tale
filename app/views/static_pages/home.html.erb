@@ -1,0 +1,19 @@
+<% provide(:title, "Home") %>
+<% if logged_in? %>
+  <div class="container">
+    <%= render 'shared/feed' %>
+  </div>
+<% else %>
+  <div class="fixed-bg bg-image2 full-screen">
+  </div>
+  <div class="text-toppage">
+    <h3 class="center">What's aiilust?</h3>
+    <h5 class="center">商用利用可能なイラストの売買サービス。</h5>
+    <h5 class="center">購入したイラストはあなただけのものになります。</h5>
+  </div>
+  <div class="fixed-bg bg-image1 full-screen relative">
+  　　<div class="absolute">
+      <%= link_to "利用登録", new_user_registration_path, class: "btn-large" %>
+    </div>
+  </div>
+<% end %>

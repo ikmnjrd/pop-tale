@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col l12">
+    <div class="row">
+      <div class="col l3 m12 card-panel card-panel--color">
+        <h3>Menu</h3>
+        <ul class="collection collection--color">
+          <li><a href="/sell" class="collection-item">作品を投稿する<i class="material-icons right">chevron_right</i></a></li> 
+          <div class="divider"></div>
+          <li><a href="/users/edit" class="collection-item">アカウント設定<i class="material-icons right">chevron_right</i></a></li>
+          <div class="divider"></div>
+          <li><a href="/mypages/purchases" class="collection-item">購入した作品<i class="material-icons right">chevron_right</i></a></li>
+          <div class="divider"></div>
+          <li><a href="/mypages/sold" class="collection-item">購入された作品<i class="material-icons right">chevron_right</i></a></li>
+          <div class="divider"></div>
+          <li><a href="/mypages/connect_stripe" class="collection-item">ストライプに登録する<i class="material-icons right">chevron_right</i></a></li>
+          
+          
+        </ul>
+      </div>
+      <div class="col l9 m12">
+        <%= render yield(:main_area) %>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+</div>

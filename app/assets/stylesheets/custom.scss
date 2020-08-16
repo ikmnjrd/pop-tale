@@ -1,0 +1,173 @@
+
+
+/* universal */
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+  flex: 1 0 auto;
+}
+
+/* footer */
+footer { 
+  margin-top: auto;
+}
+#links{
+  font-size: 30px;
+}
+#footer-test{
+  padding-top: 1px; 
+}
+
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+/* forms */
+.custom-file-field {
+  display: none;
+}
+.test2 {
+  width: 50px;
+  height: 50px;
+  background-image: image-url("rails.png");
+}
+
+#form1{
+  margin-left: 200px;
+}
+li form{
+  padding-right: 10px;
+}
+
+
+.header-search-btn {
+  //float: left !important;
+  //clear: left;
+  display: none;
+}
+
+/* トップページ */
+.full-screen {
+  width: 100%;
+  height: 100vh;
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.fixed-bg {
+  background-size: cover;
+  -webkit-background-size: cover;
+  background-attachment: fixed;
+  //background-image: linear-gradient(hsl(10,90,66), transparent 70%);
+}
+.bg-image1 {
+  background-image: image-url('concreatwall.jpeg');
+}
+
+.bg-image2 {
+  background-image: image-url('concreate_entrance.jpg');
+}
+
+.text-toppage {
+  padding-bottom: 2rem;
+}
+
+.card-panel.card-panel--color{
+  background-color: #f5f5f5;
+}
+
+.collection.collection--color .collection-item {
+  background-color: #fafafa;
+  color: #000000;
+}
+
+
+/* sidenav */
+.sidenav-overlay{
+  background-color: #fafafa;
+}
+
+
+/* ここにsidevarで表示する画像の.gravatarを書いてたけど、反映してない*/
+
+/* forms */
+/*
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+*/
